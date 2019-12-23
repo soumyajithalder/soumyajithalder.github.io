@@ -3,46 +3,62 @@
 <head>
 	<title>CSS Basics 3</title>
 	<style type="text/css">
-		footer{
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: 400px;
-			text-align: left;
-		}
+        body{
+            margin:0;
+            padding: 0;
+        }
+        .content{
+            display:flex;
+            position:absolute;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            width:100%;
+            bottom:0px;
+            margin-bottom: 10px;
+        }
 		#left{
 			float: left;
 			background-color:black;
-			width:33%;
-			height:400px;
+			width:32.3%;
 			opacity: 65%;
+            overflow: auto;
+            margin-right: 10px;
+            clear: both;
+            height: 400px;
 		}
 		#middle{
 			float: left;
 			background-color:black;
-			width:32.5%;
-			height: 400px;
-			margin-left: 10px;
+			width:32.3%;
+            margin-right: 10px;
 			opacity: 65%;
+            clear: right;
+            overflow: auto;
+            height: 400px;
 		}
 		#right{
 			float: right;
 			background-color:black;
-			width:33%;
-			height: 400px;
-			margin-right: 10px; 
+			width:32.3%;
+            overflow: auto;
 			opacity: 65%;
+            clear: right;
+            height: 400px;
 		}
 		#bird{
-			float: right;
-			padding-top: 80px;
-			padding-right: 200px;
+			float: left;
+            margin: 2% 15%;
+            width: 200px;
+            height: 200px;
+			clear: none;
 		}
 		#container{
+            margin: 2% 5%;
 			float: left;
-			padding-top: 30px;
-			padding-left: 70px;
+			clear: none;
 			width: 40%;
+            height: 400px;
 		}
 
 		#p1{
@@ -54,7 +70,7 @@
 		}
 		h1{
 			font-family: "Calibri";
-			font-size: 60px;
+			font-size: 50px;
 			color: white;
 			text-align: left;
 		}
@@ -69,7 +85,7 @@
 		}
 		h3{
 			padding-top: 40px;
-			padding-left: 50px;
+			padding-left: 40px;
 			font-family: "Calibri";
 			color: white;
 			text-align: left;
@@ -82,9 +98,10 @@
 		<p id="p1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	</div>
 	<div id="bird">
-				<img src="images/twitter-xxl.png" alt="bird">
-			</div>
-	<footer>
+        <img src="images/twitter-xxl.png" alt="bird">
+    </div>
+			
+	<div class="content">
 	<div id="left">
 		<h2>Lorem ipsum dolor sit amet.</h2>
 		<h3 style="font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</h3>
@@ -97,6 +114,6 @@
 		<h2>Lorem ipsum dolor sit amet.</h2>
 		<h3 style="font-size: 20px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</h3>
 	</div>
-	</footer>
+	</div>
 </body>
 </html>

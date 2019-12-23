@@ -95,6 +95,18 @@ body {
     text-transform: uppercase;
 }
 
+.white {
+    color: rgb(0, 0, 57, 0.75);
+    border: 1px solid rgb(0, 0, 57, 0.75);
+    background-color: white;
+}
+
+.white:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: rgb(0, 0, 57, 0.75);
+}
+
 .light {
     border: 2px solid white;
     background-color: rgba(0, 0, 57, 0.75);
@@ -454,65 +466,63 @@ img {
 }
 
 .blog-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: visible;
-    background-color: #fcfcfc;
+    width: 65%;
+    height: 90vh;
+    margin: auto;
+    padding-bottom: 30px;
 }
 
 .blog-head{
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    align-content: stretch;
-    margin-left: 10em;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 2em;
 }
 
 .blog-content{
     display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 1.4em;
-    padding-left: 35vh;
-    padding-right: 35vh;
-    padding-bottom: 3em;
+    margin-top: 5px;
+    padding: 10px;
+    justify-content: space-evenly;
 }
 
 .blog-post-item{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
+    border-radius: 7px;
     background-color: #f5f5f5;
     box-shadow: 0 0 10px -3px #000;
-    padding:4em;
+    margin: 10px;
+}
+.blog-post-item img{
+    max-width: 100%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
 }
 
-.blog-post-item .heading{
-    margin-top: -20px;
-    font-size: 32px;
+.blog-post-item .small{
+    margin-top: 1.5em;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
 }
+ .btn-center{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
 .blog-text{
-    font-family: "Calibri";
-}
-.features-item{
-    list-style: none;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    text-align: center;
-    font-size: 18px;
-}
-.nan-feature{
-    list-style: none;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    text-align: center;
-    font-size: 18px;
-    opacity: 25%;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+    line-height: 1.9em;
 }

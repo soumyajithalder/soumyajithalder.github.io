@@ -597,10 +597,12 @@ img {
     height:20px;
 }
 .footer hr {
+    opacity: 20%;
     margin-bottom: 1em;
 }
 
 .copyright {
+    opacity: 50%;
     text-align: center;
     padding-bottom: 1em;
 }

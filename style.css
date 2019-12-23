@@ -1,0 +1,142 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Calibri";
+}
+.nav{
+	background-color: #d3dadb;
+	list-style: none;
+	width: 100%;
+	text-align: right;
+	padding: 35px 0 35px 0;
+}
+.nav ul{
+	margin-right: 150px;
+}
+.nav li{
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.nav li a{
+	text-decoration: none;
+	color: #328ced;
+	font-size: 20px;
+	padding: 15px;
+}
+.nav li a:hover{
+	background: black;
+	color: white;
+	transition: .5s;
+}
+.logo{
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	padding-left:150px;
+}
+.banner{
+	width: 100%;
+	display: block;
+	background-color: #61d8ed;
+	color: white;
+	text-align: center;
+	font-size: 70px;
+	padding: 70px 0 70px 0;
+}
+
+.left-arrow{
+	float: left;
+	padding-left: 35px;
+}
+
+.right-arrow{
+	float: right;
+	padding-right: 35px;
+}
+
+.main{
+	width: 100%;
+	min-height: 650px;
+	overflow: hidden;
+}
+.main-sidebar{
+	float: left;
+	margin-left: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: yellow;
+	width: 33%;
+	min-height: 650px;
+}
+.main-form{
+	float: right;
+	margin-right: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: orange;
+	width: 45%;
+	min-height: 430px;
+
+}
+.formstyle{
+	padding: 50px 30px;
+}
+.formstyle input[type="text"],input[type="password"],select{
+	border: none;
+	width: 40%;
+	font-size: 25px;
+	color: white;
+	mix-blend-mode: overlay;
+	background-color: rgba(255, 255, 255,.25);
+}
+.formstyle input[type="submit"]{
+	width: 15%;
+	padding: 7px;
+	font-size: 18px;
+	border: none;
+	background-color: rgba(255,255,255,.25);
+}
+.formstyle input[type="submit"]:hover{
+	cursor: pointer;
+}
+.main-float{
+	position: absolute;
+	left: 100px;
+	margin-top: 50px;
+	width: 20%;
+	min-height: 500px;
+	background-color: #d48cca;
+}
+.main-extra{
+	float: right;
+	margin-right: 200px;
+	margin-bottom: 10px;
+	width: 45%;
+	min-height: 210px;
+	background-color: #70c456;
+}
+footer{
+	position: relative;
+	background-color: #1993a8;
+	list-style: none;
+	width: 100%;
+	text-align: center;
+	padding: 35px 0 35px 0;
+}
+footer li{
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+footer li a{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	padding: 0 0 0 10px;
+}
+footer li a:hover{
+	color: black;
+}

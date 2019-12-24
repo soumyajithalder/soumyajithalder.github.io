@@ -5,25 +5,29 @@
 }
 .nav{
 	background-color: #d3dadb;
+    display: flex;
+    justify-content: space-around;
 	list-style: none;
 	width: 100%;
 	text-align: right;
-	padding: 35px 0 35px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .nav ul{
-	margin-right: 150px;
+	display: flex;
+    justify-content: space-evenly;
 }
 .nav li{
-	display: inline-block;
+    max-width: 150px;
+    list-style: none;
 	text-decoration: none;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 1em;
 }
 .nav li a{
 	text-decoration: none;
 	color: #328ced;
 	font-size: 20px;
-	padding: 15px;
+	padding: 0.7em;
 }
 .nav li a:hover{
 	background: black;
@@ -31,10 +35,8 @@
 	transition: .5s;
 }
 .logo{
-	position: absolute;
-	top: 25px;
-	left: 25px;
-	padding-left:150px;
+	width: 30px;
+    height: 30px;
 }
 .banner{
 	width: 100%;
@@ -58,26 +60,29 @@
 
 .main{
 	width: 100%;
+    display: flex;
 	min-height: 650px;
 	overflow: hidden;
 }
 .main-sidebar{
-	float: left;
-	margin-left: 200px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+    width: 33%;
+    margin-top: 10px;
+	margin-left: 150px;
+    padding: 2em 5em 7em;
 	background-color: yellow;
-	width: 33%;
-	min-height: 650px;
 }
+
+.content{
+    width: 67%;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 150px;
+}
+
 .main-form{
-	float: right;
-	margin-right: 200px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+    height: 70%;
 	background-color: orange;
-	width: 45%;
-	min-height: 430px;
+    margin-bottom: 10px;
 
 }
 .formstyle{
@@ -101,23 +106,19 @@
 .formstyle input[type="submit"]:hover{
 	cursor: pointer;
 }
+
 .main-float{
-	position: absolute;
-	left: 100px;
-	margin-top: 50px;
-	width: 20%;
-	min-height: 500px;
+    margin-left: -150px;
+	height: 100%;
 	background-color: #d48cca;
 }
 .main-extra{
-	float: right;
-	margin-right: 200px;
-	margin-bottom: 10px;
-	width: 45%;
-	min-height: 210px;
+    margin-bottom: 10px;
+    height: 30%;
 	background-color: #70c456;
 }
 footer{
+    margin-top: 10px;
 	position: relative;
 	background-color: #1993a8;
 	list-style: none;

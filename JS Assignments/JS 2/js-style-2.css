@@ -1,0 +1,22 @@
+.main {
+    max-width: 80%;
+    margin: 2em auto;
+}
+
+.btn {
+    padding: 0.5em;
+    text-align: center;
+    background-color: #e0e3a8;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: solid 1px grey;
+}
+
+.slide {
+    display: none;
+    text-align: center;
+    background-color: #abc1e0;
+    box-sizing: border-box;
+    border: solid 1px grey;
+    padding: 10em;
+}

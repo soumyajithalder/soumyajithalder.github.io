@@ -70,8 +70,7 @@
         }
         ?>
   		<br><br><input type="file" name="file"><br><br>
-  		<textarea rows="10" cols="25" name="text">
-  		</textarea><br><br>
+  		<textarea rows="10" cols="25" name="text"></textarea><br><br>
   		<input type="submit" value="Submit" name="submitbtn"><br><br>
     </form>
     

@@ -40,8 +40,7 @@
   		<label for="full">Full name:</label><br>
   		<input type="text" name="full" value="<?php echo $fullname?>" disabled><br><br>
   		<input type="file" name="file"><br><br>
-  		<textarea rows="10" cols="25" name="text">
-  		</textarea><br>
+  		<textarea rows="10" cols="25" name="text"></textarea><br>
   		<input type="submit" value="Submit" name="submitbtn"><br><br>
     </form>
     

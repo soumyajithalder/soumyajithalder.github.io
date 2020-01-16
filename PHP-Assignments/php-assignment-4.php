@@ -49,15 +49,28 @@
 <html>
 <head>
 	<title>PHP-ASSIGNMENT-4</title>
+	<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $("#firstname,#lastname").change(function(){
+  	    var field1=$("#firstname").val();
+        var field2=$("#lastname").val();
+        $("#fullname").val(field1+" "+field2);
+            });
+        });
+    </script>
 </head>
 <body>
 	<form action="php-assignment-4.php" enctype="multipart/form-data" method="post">
         <label for="first">First name:</label>
-  		<input type="text" name="first" required>
+  		<input type="text" name="first" id="firstname" required>
   		<label for="last">Last name:</label>
-  		<input type="text" name="last" required><br><br>
+  		<input type="text" name="last" id="lastname" required><br><br>
   		<label for="full">Full name:</label>
-  		<input type="text" name="full" value="<?php echo $fullname?>" disabled>
+  		<input type="text" name="full" id="fullname" value="<?php echo $fullname?>" disabled>
         <label for="phone">Phone No: <span><b>+91</b></span></label>
   		<input type="text" name="phoneno"><?php
         if(isset($_POST['submitbtn'])){

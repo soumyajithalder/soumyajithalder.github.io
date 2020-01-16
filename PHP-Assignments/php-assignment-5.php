@@ -57,7 +57,7 @@
             $json_response = curl_exec($ch);
             curl_close($ch);
             if ($result = json_decode($json_response, true)) {
-	           if (floatval($result['score']) >= 0.65) { // or 0.65 for transactional emails
+	           if (floatval($result['score']) >= 0.65 && $result['smtp_check'] == true) { // or 0.65 for transactional emails
                     $GLOBALS['valid']= 'The e-mail address '.$result['email'].' is valid.';
 	           }
                 else {

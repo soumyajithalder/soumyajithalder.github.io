@@ -36,12 +36,15 @@
     function validate_phone($phoneno){
         $filtered_phone_number = filter_var($phoneno, FILTER_SANITIZE_NUMBER_INT);
         $phoneno_to_check = str_replace("-", "", $filtered_phone_number);
-        if (strlen($phoneno_to_check) < 10 || strlen($phoneno_to_check) > 10) 
+        if (strlen($phoneno_to_check) < 10 || strlen($phoneno_to_check) > 15) 
         {
             return false;
         } else {
-            return true;
+            if(!preg_match("/^\+91+[0-9]{10}$/", $phoneno)){
+                return false;
+            }
         }
+        return true;
     }
 ?>
 
@@ -71,11 +74,10 @@
   		<input type="text" name="last" id="lastname" required><br><br>
   		<label for="full">Full name:</label>
   		<input type="text" name="full" id="fullname" value="<?php echo $fullname?>" disabled>
-        <label for="phone">Phone No: <span><b>+91</b></span></label>
-  		<input type="text" name="phoneno"><?php
+        <label for="phone">Phone No: </label>
+  		<input type="text" name="phoneno" required><?php
         if(isset($_POST['submitbtn'])){
             if (validate_phone($phoneno) == true) {
-            $phoneno="+91".$phoneno;
             echo $phoneno;
             } else {
             echo "Invalid phone number";

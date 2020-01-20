@@ -121,4 +121,6 @@
     }          
     ?>	
 </body>
+<?php
+    include("index.php")?>
 </html>

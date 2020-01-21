@@ -102,6 +102,7 @@
                   echo "<td>" . $key . "</td>";
                   echo "<td>" . $value . "</td>";
           }
+        echo "</table>";
         $filepath = "images/" . $_FILES["file"]["name"];
         if(!empty($message)){
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
@@ -119,8 +120,9 @@
             echo $errmessage;
         }
     }          
-    ?>	
+    ?>
+    <br><br>	
+    <?php
+    include("index.php");?> 
 </body>
-<?php
-    include("index.php")?>
 </html>

@@ -9,22 +9,21 @@ if(!isset($_SESSION['username'])){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Php Assignment List</title>
+    <title></title>
 </head>
 <body>
-    <form action="" enctype="multipart/form-data" method="post">
-    <?php
-    for($page=1;$page<=10;$page++){
-        echo '<a href="php-assignment-' . $page . '.php">' . $page . '</a> ';
-    }
-    ?>
-    <input type="submit" name="logout" value="Logout">
-    <?php
-    if(isset($_POST['logout'])){
+  <form action="" method="post">
+  <?php    
+      for($page=1;$page<=10;$page++){
+    echo '<a href="php-assignment-' . $page . '.php">' . $page . '</a> ';
+}
+echo '<input type="submit" name="logout" value="Logout">';
+if(isset($_POST['logout'])){
         session_destroy();
+    session_unset();
         header('Location: login.php');
     }
-    ?>
-    </form>
+?>
+  </form>  
 </body>
 </html>

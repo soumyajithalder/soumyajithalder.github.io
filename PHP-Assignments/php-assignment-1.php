@@ -50,8 +50,10 @@
         echo $errmessage;
         ?>
   		
-  		
-</body>
+  		<footer>
 <?php
-    include("index.php")?>
+    include("index.php");
+    ?>
+    </footer>
+    </body>
 </html>

@@ -68,7 +68,10 @@
         }
     }          
     ?>	
+    <footer>
+        <?php
+    include("index.php");?>
+
+    </footer>
 </body>
-<?php
-    include("index.php")?>
 </html>

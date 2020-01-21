@@ -83,7 +83,6 @@
 <html>
 <head>
 	<title>PHP-ASSIGNMENT-5</title>
-    <style>.labels {color:cornflowerblue}</style>
 	<script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -98,7 +97,8 @@
         });
     </script>
 </head>
-<body>
+
+<body> 
 	<form action="php-assignment-5.php" enctype="multipart/form-data" method="post">
         <label for="first">First name:</label>
   		<input type="text" name="first" id="firstname" required>
@@ -135,16 +135,6 @@
     <?php
     if(isset($_POST['submitbtn']))
     { 
-        echo "<table border='1'>
-                <tr>
-                    <th>Subjects</th>
-                    <th>Marks</th>
-                </tr>";
-        foreach ($final_data as $key => $value){
-                  echo "<tr>";
-                  echo "<td>" . $key . "</td>";
-                  echo "<td>" . $value . "</td>";
-          }
         $filepath = "images/" . $_FILES["file"]["name"];
         if(!empty($message)){
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
@@ -161,9 +151,21 @@
         else{
             echo $errmessage;
         }
-    }          
-    ?>	
+     echo "<table border='1'>
+                <tr>
+                    <th>Subjects</th>
+                    <th>Marks</th>
+                </tr>";
+        foreach ($final_data as $key => $value){
+                  echo "<tr>";
+                  echo "<td>" . $key . "</td>";
+                  echo "<td>" . $value . "</td>";
+          }   
+    }  	
+    echo "</table>";
+    ?>
+    <br><br>
+    <?php
+    include("index.php");?>
 </body>
-<?php
-    include("index.php")?>
 </html>

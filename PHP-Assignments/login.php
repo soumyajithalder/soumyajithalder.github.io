@@ -20,8 +20,8 @@ else{
 </head>
 <body>
   <form action="" enctype="multipart/form-data" method="post">
-      <input type="text" name="username">
-      <input type="password" name="password">
+      <input type="text" name="username" placeholder="Hint: admin" required>
+      <input type="password" name="password" placeholder="Hint: admin" required>
       <input type="submit" value="Login" name="login">
      <!--<input type="submit" value="Logout" name="logout">-->
       <?php

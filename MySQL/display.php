@@ -101,4 +101,21 @@
     </div>
 </body>
     <br><br><?php include("logout.php")?>
+    
+    
+    <!--
+    SELECT empdet.employee_first_name FROM employee_details_table empdet INNER JOIN employee_salary_table empsal ON empdet.employee_id = empsal.employee_id WHERE empsal.employee_salary > 50;
+    
+    SELECT employee_last_name FROM employee_details_table WHERE Graduation_percentile >70;
+       
+    SELECT empcode.employee_code_name  FROM ((employee_code_table AS empcode INNER JOIN employee_salary_table AS empsal ON empcode.employee_code = empsal.employee_code) INNER JOIN employee_details_table AS empdet ON empsal.employee_id = empdet.employee_id) WHERE empdet.Graduation_percentile < 70;
+        
+    SELECT empcode.employee_code_name  FROM ((employee_code_table AS empcode INNER JOIN employee_salary_table AS empsal ON empcode.employee_code = empsal.employee_code) INNER JOIN employee_details_table AS empdet ON empsal.employee_id = empsal.employee_id ) WHERE empcod.employee_domain <> 'Java';
+          
+    SELECT SUM(empsal.employee_salary) FROM ((employee_code_table AS empcode INNER JOIN employee_salary_table AS empsal ON empcode.employee_code = empsal.employee_code) INNER JOIN employee_details_table AS empdet ON empsal.employee_id = empdet.employee_id ) GROUP BY empcode.employee_domain;
+          
+    SELECT SUM(emp.salary) FROM ((employee_code_table AS empcode INNER JOIN employee_salary_table AS empsal ON empcode.employee_code = empsal.employee_code) INNER JOIN employee_details_table AS empdet ON empsal.employee_id = empdet.employee_id) GROUP BY empcode.employee_domain HAVING empsal.salary > 30000;
+          
+    SELECT employee_id FROM employee_salary_table WHERE employee_code IS NULL;
+                           -->
 </html>

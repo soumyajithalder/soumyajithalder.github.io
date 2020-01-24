@@ -38,7 +38,7 @@ if (isset($_POST) && !empty($_POST)) {
       <input type="submit" value="Login" name="login">
       <?php 
     if(isset($_SESSION['user'])){ ?>
-     <strong>Sorry !</strong> Email/Password is wrong.
+     <strong>Sorry !</strong> Email/Password is wrong. SIGN UP or re-enter details.
     <?php }?>
       <br><br>Not Registered? <a href="signup.php"> Sign Up </a>
       

@@ -99,6 +99,7 @@
             </tbody>
         </table>
     </div>
+    
 </body>
     <br><br><?php include("logout.php")?>
     

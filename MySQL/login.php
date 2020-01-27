@@ -30,19 +30,31 @@ if (isset($_POST) && !empty($_POST)) {
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
+
 <body>
-  <form enctype="multipart/form-data" method="post">
-      <input type="text" name="username" placeholder="Hint: admin">
-      <input type="password" name="password" placeholder="Hint: admin">
-      <input type="submit" value="Login" name="login">
-      <?php 
-    if(isset($_SESSION['user'])){ ?>
-     <strong>Sorry !</strong> Email/Password is wrong. SIGN UP or re-enter details.
-    <?php }?>
-      <br><br>Not Registered? <a href="signup.php"> Sign Up </a>
-      
-     <!--<input type="submit" value="Logout" name="logout">-->
-  </form>  
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <form enctype="multipart/form-data" method="post">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Hint:admin">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Hint:admin">
+      <input type="submit" name="login" class="fadeIn fourth" value="Log In">
+    </form>
+        <?php 
+            if(isset($_SESSION['user'])){ ?>
+             <strong>Sorry !</strong> Email/Password is wrong. SIGN UP or re-enter details.
+            <?php }?>
+    <div class="form-group">
+        Not Registered? <a class="underlineHover" href="signup.php">Sign Up</a>
+    </div>
+
+  </div>
+</div>
 </body>
+
 </html>

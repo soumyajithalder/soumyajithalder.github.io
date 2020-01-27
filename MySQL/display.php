@@ -1,7 +1,7 @@
 <?php include("logincheck.php");?>
 <?php
     include("connect.php");
-    $sql="SELECT * FROM employee_details_table;";
+    $sql="SELECT CONCAT (prefix,employee_id) AS employee_id,employee_first_name,employee_last_name,Graduation_percentile FROM employee_details_table;";
     $sql2="SELECT * FROM employee_code_table;";
     $sql3="SELECT * FROM employee_salary_table;";
     $result=$conn->query($sql);

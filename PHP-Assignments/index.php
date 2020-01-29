@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(!isset($_SESSION['username'])){
-    header('Location: login.php');
-    exit;
-}
+include("logincheck.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +10,7 @@ if(!isset($_SESSION['username'])){
 <body>
   <form action="" method="post">
   <?php    
-      for($page=1;$page<=10;$page++){
+      for($page=1;$page<=6;$page++){
     echo '<a href="php-assignment-' . $page . '.php">' . $page . '</a> ';
 }
 echo '<input type="submit" name="logout" value="Logout">';

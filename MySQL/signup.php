@@ -55,7 +55,7 @@ exit;*/
         <?php if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
          Signed Up Successfully.<a href="login.php"> Click to Login</a>
                        <?php } elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>
-                       You Have not Signed Up Successfully.
+                       User already exist.
                        <?php }
                        //unset($_SESSION['signup']);
             ?>

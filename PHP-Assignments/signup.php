@@ -48,14 +48,14 @@ exit;*/
   <div class="wrapper fadeInDown">
   <div id="formContent">
     <form enctype="multipart/form-data" method="post">
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Enter Username">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Enter Username" required>
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password" required>
       <input type="submit" name="signup" class="fadeIn fourth" value="Sign Up">
     </form>
         <?php if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
          Signed Up Successfully.<a href="login.php"> Click to Login</a>
                        <?php } elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>
-                       You Have not Signed Up Successfully.
+                       User already exists.
                        <?php }
                        //unset($_SESSION['signup']);
             ?>

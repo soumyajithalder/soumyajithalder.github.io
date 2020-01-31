@@ -34,7 +34,7 @@ h1{
 
 .banner{
     content: '';
-    background: url("./soumyajithalder.github.io/images/img-1.jpg") no-repeat center center/cover;
+    background: url("img-1.jpg") no-repeat center center/cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -163,7 +163,7 @@ h1{
 }
 
 .panel {
-  background-image: url(./soumyajithalder.github.io/images/img-1.jpg);
+  background-image: url(img-1.jpg);
   color: white;
   padding: 1.5rem;
   display: none;
@@ -188,7 +188,7 @@ h1{
 }
 
 .img-float{
-    background-image: url(./soumyajithalder.github.io/images/img-2.jpg);
+    background-image: url(img-2.jpg);
     width: 100%;
     height: 240px;
     margin-left: -175px;

@@ -3,7 +3,8 @@
 <head>
 <title>Page Title</title>
 <link rel="stylesheet" href="style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="custom.js"></script>
 </head>
 <body>
@@ -11,19 +12,19 @@
 <div class="block section1">
   <h2>Increase white element height 300px onclick button</h2>
   <div class="height"></div>
-  <button onclick="btn1()">click</button>
+  <button id="btn1" onclick="btn1()">click</button>
 </div>
 <div class="block section2">
   <h2>Move white element to right 400px with smooth movement on button click</h2>
   <div class="height"></div>
-  <button onclick="btn2()">click</button>
+  <button id="btn2" onclick="btn2()">click</button>
 </div>
 <div class="block section3">
-  <div id="full">
+  <div id="full" class="full">
     <h2>After scroll 700px from top this section need to be fixed at top and after 900px it will return his actual position</h2>
   </div>
 </div>
-<script>
+<!--<script>
 window.onscroll = function() {myFunction()};
 
 var navbar = document.getElementById("full");
@@ -36,14 +37,14 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
-</script>
+</script>-->
 
 <div class="block section5">
   <h2>On button click Wrap second paragraph with a div </h2>
   <p> para 1</p>
   <p id="para2">para 2</p>
   <p>para 3</p>
-  <button onclick="btn3()">Click Me..</button>
+  <button id="btn3" onclick="btn3()">Click Me..</button>
 </div>
 <div class="block section9">
   <h2> on button click change input field value and disable the button</h2>
@@ -60,7 +61,7 @@ function myFunction() {
   <p class="intro">I live in Duckburg.</p>
   <p class="intro">I live in Duckburg.</p>
   <p class="intro">I live in Duckburg.</p>
-  <button onclick="btn5()">Click Me..</button>
+  <button id="btn5" onclick="btn5()">Click Me..</button>
 </div>
 <div class="block section7">
 <h2>On click add background color inside 4, 5 and 6 </h2>
@@ -76,7 +77,7 @@ function myFunction() {
          <li>8</li>
           <li>9</li>
   </ul>
-  <button onclick="btn6()">Click Me..</button>
+  <button id="btn6" onclick="btn6()">Click Me..</button>
 </div>
 </div>
 
@@ -94,7 +95,7 @@ function myFunction() {
          <li>8</li>
           <li>9</li>
   </ul>
-  <button onclick="btn7()">Click Me..</button>
+  <button id="btn7" onclick="btn7()">Click Me..</button>
 </div>
 </div>
 
@@ -102,7 +103,7 @@ function myFunction() {
 <div class="block section4">
   <h2>after click on tab button content section need to be change</h2>
   <div class="tabcontent">
-    <button onclick="btn8()">tab1</button><button onclick="btn9()">tab2</button>
+    <button id="btn8" onclick="btn8()">tab1</button><button id="btn9" onclick="btn9()">tab2</button>
     <div class="content active">tab 1 content</div>
     <div class="content">tab 2 content</div>
   </div>
@@ -110,7 +111,7 @@ function myFunction() {
 
 <div class="block section10">
   <h2>on button click back to top with smooth scroll</h2>
-    <button onclick="btn10()">tab1</button>
+    <button id="btn10" onclick="btn10()">tab1</button>
 </div>
 
 

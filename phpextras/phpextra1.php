@@ -1,23 +1,22 @@
-<!--<html>
+<html>
     <body>
             <?php
-            /*    error_reporting(E_ALL);
                 session_start();
 
-                $_SESSION['username'] = true;// to bypass Login page (remove it once you test it)
+                $_SESSION['username'] = true;
 
-                if(!isset($_POST['user_choice'])){
+                if(!isset($_POST['user'])){
                     if(!isset($_SESSION['username'])){
                         header('location:login.php');
                     }
                     else{
                         echo "First page:";
                         $_SESSION['secondPage'] = true;
-                        echo '<form action=htmlspecialchars($_SERVER["PHP_SELF"]); method="post" />
-                        <input type="radio" name="user_choice" value="Rock" title="Rock" />Rock <br /><br />
-                        <input type="radio" name="user_choice" value="Paper" title="Paper" />Paper <br /><br />
-                        <input type="radio" name="user_choice" value="Scissors" title="Scissors" />Scissors <br /><br />
-                        <input type="submit" name="form_submit" value="submit"/> 
+                        echo '<form action="" method="post" />
+                        <input type="radio" name="user" value="Rock" title="Rock" />Rock <br /><br />
+                        <input type="radio" name="user" value="Paper" title="Paper" />Paper <br /><br />
+                        <input type="radio" name="user" value="Scissors" title="Scissors" />Scissors <br /><br />
+                        <input type="submit" name="submit" value="submit"/> 
                         </form> ';
                     }
                 }
@@ -26,14 +25,13 @@
                 if(!isset($_SESSION['username'])) {
                     header('location:login.php');
                 } else {
-                    if(isset($_POST['user_choice'])) {
+                    if(isset($_POST['user'])) {
                         echo "Second Page:<br><br>";
                         $CPUChoice = array('Rock', 'Paper', 'Scissors');
                         shuffle($CPUChoice);
-                        //echo "CPU Select". $CPUChoice[0];exit;
 
                         $CPU = $CPUChoice[0];
-                        $User = $_POST['user_choice'];
+                        $User = $_POST['user'];
 
                         echo 'Player: '.$User.' <br>CPU: '.$CPU;
 
@@ -66,26 +64,8 @@
                             }
                         }
                    }
-                }*/
+                }
             ?>
+
         </body>
-    </html>-->
-    
-   
-  
- 
-<?php
-    class php1{
-        public function user(){
-            
-        }
-        
-        public function cpu(){
-            
-        }
-        
-        public function gamelogic(){
-            
-        }
-    }
-?>
+    </html>

@@ -10,7 +10,6 @@
                         header('location:login.php');
                     }
                     else{
-                        echo "First page:";
                         $_SESSION['secondPage'] = true;
                         echo '<form action="" method="post" />
                         <input type="radio" name="user" value="Rock" title="Rock" />Rock <br /><br />
@@ -26,7 +25,6 @@
                     header('location:login.php');
                 } else {
                     if(isset($_POST['user'])) {
-                        echo "Second Page:<br><br>";
                         $CPUChoice = array('Rock', 'Paper', 'Scissors');
                         shuffle($CPUChoice);
 
@@ -36,13 +34,13 @@
                         echo 'Player: '.$User.' <br>CPU: '.$CPU;
 
                         if($User === $CPU){
-                            echo '<br>Result: Tie!';
+                            echo '<br><br>Result: Tie!';
                         }
                         else if($User === "Rock"){
                             if($CPU === "Scissors") {
-                                echo '<br>Result: User wins';
+                                echo '<br><br>Result: User wins';
                             } else {
-                                echo '<br>Result: CPU wins';
+                                echo '<br><br>Result: CPU wins';
                             }
                         }
                         else if($User === "Paper") {
@@ -59,7 +57,7 @@
                                 echo '<br>Result: CPU wins';
                             } else {
                                 if($CPU === "Paper") {
-                                    echo '<br>Result: User wins';
+                                    echo '<br><br>Result: User wins';
                                 }
                             }
                         }

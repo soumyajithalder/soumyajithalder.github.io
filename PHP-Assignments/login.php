@@ -50,6 +50,10 @@
     <div class="form-group">
         Not Registered? <a class="underlineHover" href="signup.php">Sign Up</a>
     </div>
+    
+    <div class="form-group">
+        <a class="underlineHover" href="passwordreset.php">Forgot Password</a>
+    </div>
 
   </div>
 </div>

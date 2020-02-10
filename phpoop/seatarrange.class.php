@@ -23,7 +23,7 @@
                     //return false;
                 }
             }
-            //return true;
+            //echo
         }
         
         public function seat(){
@@ -45,7 +45,7 @@
                     }
                 }
             }
-            //return true;
+            //echo
         }
         
     }

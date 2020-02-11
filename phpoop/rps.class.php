@@ -1,14 +1,44 @@
 <?php
-    class RockPaperScissors{
+
+    /**
+    *
+    * Class Rock_Paper_Scissors
+    */
+    class Rock_Paper_Scissors{
         
+        /**
+        * The CPU Choice for Rock,Paper or Scissors
+        *
+        * @var $CPUChoice
+        */
         public $CPUChoice;
         
-        public function CPU(){
+        
+        
+        /**
+        * 
+        * @return
+        * CPU choice at [0] after shuffling.
+        *
+        */
+        public function cpu(){
+            
             $CPUChoice=array("Rock","Paper","Scissors");
             shuffle($CPUChoice);
             return $CPUChoice[0];
+            
         }
-        public function gameStatus($user,$cpu){
+        
+        
+        /**
+        *
+        * @param $user 
+        * The parameter user that takes user choice
+        *
+        * @param $cpu
+        * The parameter user that takes cpu choice
+        */
+        public function game_status($user,$cpu){
              if($user === $cpu){
                     return "Tie";
                     }

@@ -2,8 +2,9 @@
     class Persons{
         public $name,$gender;
         function __construct($name,$gender){
-            $this->gender=$gender;
             $this->name=$name;
+            $this->gender=$gender;
+            
         }
     }
 
@@ -17,55 +18,62 @@
         
         public function arrangement(){
             $length=count($this->person);
-            for($i=0; $i<$length-1; $i++){
-                $person=$this->person[$i];
-                if($person->gender == 'F' && ($person->gender == $this->person[$i-1]->gender || $person->gender == $this->person[$i+1]->gender)){
-                    //return false;
+            for($i=1; $i<$length-1; $i++){
+                $persons=$this->person[$i];
+                if($persons->gender == 'F' && ($persons->gender == $this->person[$i-1]->gender || $persons->gender == $this->person[$i+1]->gender)){
+                    return 0;
                 }
             }
-            //echo
+            return 1;
         }
         
         public function seat(){
             $length=count($this->person);
-            $f=-1;
+            $flag=-1;
             for($i=1;$i<$length-1;$i++){
-                $person=$this->person[$i];
-                if($person->gender=='F'){
-                    if($f==-1){
-                        $f=$i;
+                $persons=$this->person[$i];
+                if($persons->gender=='F'){
+                    if($flag==-1){
+                        $flag=$i;
                     }
                 }
                 else{
-                    if($f!=-1 && ($this->person[$i-1]->gender != 'F' && $this->person[$i+1]->gender != 'F')){
-                        $tmp= $this->person[$f];
-                        $this->person[$f]=$this->person[$i];
+                    if($f != -1 && ($this->person[$i-1]->gender != 'F' && $this->person[$i+1]->gender != 'F')){
+                        $tmp= $this->person[$flag];
+                        $this->person[$flag]=$this->person[$i];
                         $this->person[$i]=$tmp;
                         break;
                     }
                 }
+                
             }
-            //echo
+            //print_r($this->person[$f]);
         }
         
     }
 
 
 $person=array(
-        1 => new Persons('1', 'M'),
-        2 => new Persons('2', 'M'),
-        3 => new Persons('3', 'M'),
-        4 => new Persons('4', 'M'),
-        5 => new Persons('5', 'M'),
-        6 => new Persons('6', 'M'),
-        7 => new Persons('7', 'M'),
-        8 => new Persons('8', 'F'),
-        9 => new Persons('9', 'F'),
-        10 => new Persons('10', 'F'),
+        0 => new Persons('1', 'F'),
+        1 => new Persons('2', 'F'),
+        2 => new Persons('3', 'M'),
+        3 => new Persons('4', 'M'),
+        4 => new Persons('5', 'M'),
+        5 => new Persons('6', 'M'),
+        6 => new Persons('7', 'F'),
+        7 => new Persons('8', 'M'),
+        8 => new Persons('9', 'M'),
+        9 => new Persons('10', 'M')
     );
 
-$object=new Arrange($person);
-$object->arrangement();
-$object->seat();
-    
+$object = new Arrange($person);
+$result=$object->arrangement();
+if($result==0){
+    $object->seat();
+    foreach($object->person as $v){
+        echo $v->name." ";
+        echo $v->gender;
+        echo "<br>";
+    }
+}   
 ?>

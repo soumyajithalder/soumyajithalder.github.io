@@ -6,71 +6,61 @@ $student=
     'sid'=>'st1',
     'name'=>'John',
     'dob'=>'1580812642',
-    'grade'=>12
+    'grade'=>12,
+    'marks'=>[
+        'P12'=>89,
+        'C12'=>70,
+        'M12'=>45,
+        'E12'=>78,
+    ],
   ],
   [
     'sid'=>'st2',
     'name'=>'Jay',
     'dob'=>'1580812642',
-    'grade'=>10
+    'grade'=>10,
+    'marks'=>[
+        'H10'=>35,
+        'E10'=>45,
+        'M10'=>92,
+    ],
   ],
   [
     'sid'=>'st3',
     'name'=>'Jonathan',
     'dob'=>'1580812642',
-    'grade'=>11
+    'grade'=>11,
+    'marks'=>[
+        'H11'=>66,
+        'E11'=>35,
+        'M11'=>35,
+        'S11'=>25,
+    ],
   ],
   [
     'sid'=>'st4',
     'name'=>'JJ',
     'dob'=>'1580812642',
-    'grade'=>10
+    'grade'=>10,
+    'marks'=>[
+        'H10'=>49,
+        'E10'=>66,
+        'M10'=>91,
+    ],
   ],
   [
     'sid'=>'st5',
     'name'=>'JR',
     'dob'=>'1580812642',
-    'grade'=>12
+    'grade'=>12,
+    'marks'=>[
+        'P12'=>89,
+        'C12'=>89,
+        'M12'=>100,
+        'E12'=>90,
+    ],
   ],
 ];
-
-$marks=
-[
-  'st1'=>
-  [
-    'P12'=>89,
-    'C12'=>70,
-    'M12'=>45,
-    'E12'=>78,
-  ],
-  'st2'=>
-  [
-    'H10'=>35,
-    'E10'=>45,
-    'M10'=>92,
-  ],
-  'st3'=>
-  [
-    'H11'=>66,
-    'E11'=>35,
-    'M11'=>35,
-    'S11'=>25,
-  ],
-  'st4'=>
-  [
-    'H10'=>49,
-    'E10'=>66,
-    'M10'=>91,
-  ],
-  'st5'=>
-  [
-    'P12'=>89,
-    'C12'=>89,
-    'M12'=>100,
-    'E12'=>90,
-  ],
-];
-
 
 $subject=
 [
@@ -142,41 +132,43 @@ $subject=
   ],
 ];
 
-
     class Student {
         
+        /**
+        *
+        * Class Student
+        * @var $sid,$name,$dob,$grade,$marks
+        * 
+        * Initialize student id,name,dob,grade and marks
+        */
         public $sid,$name,$dob,$grade,$marks;
 
         function __construct($sid,$name,$dob,$grade,$marks)
         {
+            
             $this->sid=$sid;
             $this->name=$name;
             $this->dob=$dob;
             $this->grade=$grade;
             $this->marks=$marks;
+            
         }
     }
-
-        function set_marks($sid)
-        {
-            global $marks;
-            
-            foreach ($marks as $k => $v) 
-            {
-                if ($k === $sid) 
-                {
-                    return $v;
-                }
-            }
-        }
-
+        
+        /**
+        *
+        * @var array $stu
+        * 
+        * Stores student array
+        * 
+        */
     $stu=array();
 
 
         foreach ($student as $k => $v) 
         {
             
-            $object=new Student($v['sid'],$v['name'],$v['dob'],$v['grade'],set_marks($v['sid']));
+            $object=new Student($v['sid'],$v['name'],$v['dob'],$v['grade'],$v['marks']);
             
             array_push($stu,$object);
         }
@@ -185,6 +177,14 @@ $subject=
     
     class Subject{
         
+        /**
+        *
+        * Class Subject
+        *
+        * @var $name,$code,$mm
+        * 
+        * Initialize subject name, code, passing marks
+        */
         public $name,$code,$mm;
         
         function __construct($name,$code,$mm)
@@ -195,6 +195,14 @@ $subject=
         }
     }
 
+
+    /**
+    *
+    * @var array $sub
+    * 
+    * Stores subject array
+    * 
+    */
     $sub=array();
 
     foreach ($subject as $grade => $value) 
@@ -209,8 +217,24 @@ $subject=
     }
 
 
+
+/**
+*
+* Class Student_Details
+*
+*/
 class Student_Details{
 
+    /**
+    *
+    * @var global $sub
+    * Access variable outside function scope
+    * 
+    * @param $grade
+    * 
+    * Prints Subject name, code, passing marks according to the Grade
+    * 
+    */
     public function get_subjects($grade){
         
         global $sub;
@@ -233,6 +257,17 @@ class Student_Details{
         
     }
 
+    
+    /**
+    * @var global $stu
+    * Access variable outside function scope
+    *
+    * @param $sid
+    * 
+    * Prints Subject code and marks in array format
+    * Taking Student Id as argument
+    * 
+    */
     public function get_marks_code($sid)
     {
         
@@ -250,6 +285,21 @@ class Student_Details{
     }
 
 
+    /**
+    *
+    * @var global $sub
+    * Access variable outside function scope
+    *
+    * @param $subcode
+    * 
+    * Gets passing marks of each subject
+    * Taking Subject code as argument
+    * 
+    * 
+    * @return $v2->mm 
+    * 
+    * Pass marks
+    */
     public function get_passmarks($subcode)
     {
         global $sub;
@@ -267,6 +317,23 @@ class Student_Details{
     }
 
 
+    /**
+    * 
+    * @var global $stu
+    * Access variable outside function scope
+    * 
+    * @var $name,$dob,$grade,$status
+    * Store name,dob,grade and status of pass or fail
+    * 
+    * @var $count,$i
+    * For storing total subjects and passed in number of subjects
+    *
+    * @param $sid
+    * 
+    * Displays Student name, Dob, Grade, Subject and Results
+    * Taking Student Id as argument
+    * 
+    */
     public function display($sid){
         
         global $stu;

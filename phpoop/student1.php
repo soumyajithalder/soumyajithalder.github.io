@@ -211,7 +211,7 @@ $subject=
 
 class Student_Details{
 
-    function get_subjects($grade){
+    public function get_subjects($grade){
         
         global $sub;
         
@@ -233,7 +233,7 @@ class Student_Details{
         
     }
 
-    function get_marks_code($sid)
+    public function get_marks_code($sid)
     {
         
         global $stu;
@@ -250,7 +250,7 @@ class Student_Details{
     }
 
 
-    function get_passmarks($subcode)
+    public function get_passmarks($subcode)
     {
         global $sub;
         
@@ -267,7 +267,7 @@ class Student_Details{
     }
 
 
-    function display($sid){
+    public function display($sid){
         
         global $stu;
         

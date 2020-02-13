@@ -1,28 +1,181 @@
 <?php
 
-  /*  class Player{
+    $match=
+    [
+        'match1'=>
+        [
+            'IND'=>
+            [
+                'IND_1'=>'45',
+                'IND_2'=>'00',
+                'IND_3'=>'45',
+            ],
+            'AUS'=>
+            [
+                'AUS_1'=>'26',
+                'AUS_2'=>'33',
+                'AUS_3'=>'880',
+            ],
+        ],
+        'match2'=>
+        [
+            'IND'=>
+            [
+                'IND_1'=>'00',
+                'IND_2'=>'1',
+                'IND_3'=>'17',
+            ],
+            'WI'=>
+            [
+                'WI_1'=>'4',
+                'WI_2'=>'7',
+                'WI_3'=>'78',
+            ],
+        ],
+        'match3'=>
+        [
+            'IND'=>
+            [
+                'IND_1'=>'5',
+                'IND_2'=>'98',
+                'IND_3'=>'17',
+            ],
+            'ENG'=>
+            [
+                'ENG_1'=>'54',
+                'ENG_2'=>'52',
+                'ENG_3'=>'99',
+            ],
+        ],
+        'match4'=>
+        [
+            'AUS'=>
+            [
+                'AUS_1'=>'60',
+                'AUS_2'=>'11',
+                'AUS_3'=>'00',
+            ],
+            'ENG'=>
+            [
+                'ENG_1'=>'45',
+                'ENG_2'=>'57',
+                'ENG_3'=>'11',
+            ],
+        ],
+        'match5'=>
+        [
+            'AUS'=>
+            [
+                'AUS_1'=>'17',
+                'AUS_2'=>'68',
+                'AUS_3'=>'10',
+            ],
+            'WI'=>
+            [
+                'WI_1'=>'4',
+                'WI_2'=>'2',
+                'WI_3'=>'69',
+            ],
+        ],
+        'match6'=>
+        [
+            'WI'=>
+            [
+                'WI_1'=>'74',
+                'WI_2'=>'47',
+                'WI_3'=>'00',
+            ],
+            'ENG'=>
+            [
+                'ENG_1'=>'6',
+                'ENG_2'=>'88',
+                'ENG_3'=>'89',
+            ],
+        ],
+    ];
+
+
+//echo "<pre>";
+//print_r($match);
+//echo "</pre>";
+
+
+    class Players{
         
-        public $p1,$p2,$p3;
+        /**
+        *
+        * Class Players
+        * @var $runs
+        * 
+        * Initialize Player Runs
+        */
+        public $runs;
         
-        function __construct($p1,$p2,$p3){
+        function __construct($runs){
             
-            $this->p1=$p1;
-            $this->p2=$p2;
-            $this->p3=$p3;
+            $this->runs=$runs;
             
         }
         
     }
 
 
-    class Teams{
+    //Array objects of Player
+    $p_name=[];
+
+    foreach($match as $k => $v){
         
-        public $t1,$t2;
-        
-        function __construct($t1,$t2){
+        foreach($v as $k2 => $v2){
             
-            $this->t1=$t1;
-            $this->t2=$t2;
+            foreach($v2 as $k3 => $v3){
+                
+                $object=new Players($v3);
+                $p_name[$k3][]=$object;
+                
+            }
+            
+        }
+        
+    }
+
+    
+    class Team{
+        
+        /**
+        *
+        * Class Team
+        * @var $team,$t_total
+        * 
+        * Initialize Team names and their Total runs
+        */
+        public $team,$t_total;
+        
+        function __construct($team,$t_total){
+            
+            $this->team=$team;
+            $this->t_total=$t_total;
+            
+        }
+        
+    }
+
+    //Array objects of Teams
+
+    $team_arr=[];
+
+    foreach($match as $k => $v){
+        
+        foreach($v as $k2 => $v2){
+            
+            $sum=0;
+            //$sum+=$v3[$v2++]++;
+            foreach($v2 as $k3 => $v3){
+                
+                $sum+=$v3;
+                
+            }
+                $object=new Team($k2,$sum);
+                $team_arr[$k][]=$object;
         }
         
     }
@@ -30,129 +183,121 @@
 
     class Match{
         
-        public $match=array();
+        /**
+        *
+        * Class Match
+        *
+        */
         
-        function __construct($array){
-            
-            $this->match=$array;
-            
-        }
-        
-        
+        /**
+        *
+        * @param void
+        * 
+        * Highest Scorer player 
+        *
+        * @var global $p_name
+        * Access array objects variable outside function scope
+        * 
+        * 
+        */
         public function highest_scorer(){
             
-            $max=0;
-            foreach($this->match as $key => $value){
-                foreach($value as $k2 => $value2){
-                    foreach($value2 as $key3 => $value3){
-                        if($value3>$max)
-                        {
-                            $max=$value3;
-                        }
+            global $p_name;
+            
+            $max=0; //to store max scorer each interation if higher than $max
+            $sum=0; // sum of individual player runs
+            $name=''; // player name
+            
+            foreach($p_name as $k => $v){
+                
+                $sum=0;
+                foreach($v as $k2 => $v2){
+                    
+                    $sum+=$v2->runs;
+                    //print_r($k2." ");
+                    if($sum > $max){
+                        $max=$sum;
+                        $name=$k;
                     }
+                        
                 }
             }
-            echo $max;
+            echo "Highest Scorer: <br>";
+            echo "Name: ".$name."<br>Score: ".$max."<br>"; 
         }
         
         
-        //public function 
+        /**
+        * @param void
+        * 
+        * Finds Tournament Winner
+        *
+        *
+        * @var global $team_arr 
+        * Access team array objects outside function scope
+        *
+        */
+        public function tournament_winner(){
             
-        
-        public function display(){
-            echo "<pre>";
-            print_r($this->match);
-        }
-        
-    }
-
-
-
-    $player=array(
-        
-        0 => new Player(45,0,47),
-        1 => new Player(78,1,0)
-    );
-        
-    $team=array(
-        
-        0 => new Teams($player[0],$player[1])
-        
-    );
-
-    $obj=new Match($team);
-    $obj->highest_scorer();
-    $obj->display();
-
-
-
-
-
-
-
-
-*/
-
-
-
-class Players{
-        
-        public $players_info;
-        
-        function __construct($runs){
+            global $team_arr;
             
-            $this->players_info=$runs;
+            $count=0; //To store next highest team win
+            $winner=''; //To store tournament winner team
+            $team_wins=[]; //To store winning team
             
-        }
-        
-    }
-
-    class Teams{
-        
-        public $team_info=array();
-        
-        function __construct($p1,$p2,$p3){
-            
-            $this->team_info=array($p1,$p2,$p3);
-            
-        }
-        
-    }
-
-    class Matches{
-        
-        public $match_info=array();
-        
-        function __construct($team_1,$team_2){
-            
-            $this->match_info=array($team_1,$team_2);
+            foreach($team_arr as $k => $v){
                 
-        }
-        
-    }
-
-
-    class Tournament{
-        
-        public function highest_score($match){
-            
-            $max=0;
-            
-            foreach($match as $k => $v){
-                
-                foreach($v as $match_no => $v2){
+                if($v[0]->t_total > $v[1]->t_total){
                     
-                    foreach($v2 as $teams => $v3){
+                    $team_wins[]=$v[0]->team;
+                }
+                else{
+                    
+                    $team_wins[]=$v[1]->team;
+                    
+                }
+                
+            }
+            
+            //find frequency of wins and finds the winner
+            foreach(array_count_values($team_wins) as $k => $v){
+                
+                if($v>$count){
+
+                    $winner=$k;
+                    $count=$v;
+                }
+            }
+            
+            echo "<br>Tournament Winner: ".$winner."<br>";
+            
+        }
+        
+        
+        /**
+        * 
+        * @param void
+        * Finds Maximum Team Score
+        * 
+        * @var global $team_arr 
+        * Access team array objects outside function scope
+        *
+        */
+        public function maximum_score(){
+            
+            global $team_arr;
+            
+            $max=0; //To store next maximum score
+            $team_name=''; //To store team name
+            
+            foreach($team_arr as $k => $v){
+                
+                foreach($v as $k2 => $v2){
+                    
+                    if($v2->t_total > $max){
                         
-                        foreach($v3 as $players => $runs){
-                            
-                            if($runs > $max){
-                                
-                                $max = $runs;
-                                
-                            }
-                            
-                        }
+                        $max=$v2->t_total;
+                        $team_name=$v2->team;
                         
                     }
                     
@@ -160,41 +305,16 @@ class Players{
                 
             }
             
-            print_r($max);
+            echo "<br>Maximum Scorer: ".$team_name;
+            
         }
+        
+        
     }
 
-
-    $obj_player['player1_name']=new Players(80);
-    $obj_player['player2_name']=new Players(0);
-    $obj_player['player3_name']=new Players(18);
-    $obj_player['player4_name']=new Players(78);
-    $obj_player['player5_name']=new Players(100);
-    $obj_player['player6_name']=new Players(25);
-    $obj_player['player7_name']=new Players(90);
-    $obj_player['player8_name']=new Players(74);
-    $obj_player['player9_name']=new Players(47);
-    $obj_player['player10_name']=new Players(2);
-    $obj_player['player11_name']=new Players(11);
-    $obj_player['player12_name']=new Players(78);
-
-
-    $obj_team['team_1']=new Teams($obj_player['player1_name'],$obj_player['player2_name'],$obj_player['player3_name']);
-    $obj_team['team_2']=new Teams($obj_player['player4_name'],$obj_player['player5_name'],$obj_player['player6_name']);
-    $obj_team['team_3']=new Teams($obj_player['player7_name'],$obj_player['player8_name'],$obj_player['player9_name']);
-    $obj_team['team_4']=new Teams($obj_player['player10_name'],$obj_player['player11_name'],$obj_player['player12_name']);
-
-
-    $obj_match['match1']=new Matches($obj_team['team_1'],$obj_team['team_2']);
-    $obj_match['match2']=new Matches($obj_team['team_3'],$obj_team['team_4']);
-
-
-    $obj=new Tournament();
-    //$obj->display($obj_team);
-    $obj->highest_score($obj_match);
-
-    echo "<pre>";
-    print_r($obj_match);
-
-
+$match_obj=new Match();
+$match_obj->highest_scorer();
+$match_obj->tournament_winner();
+$match_obj->maximum_score();
+    
 ?>

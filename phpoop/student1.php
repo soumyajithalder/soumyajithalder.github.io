@@ -162,7 +162,7 @@ $subject=
         * Stores student array objects
         * 
         */
-    $stu=array();
+        $stu=array();
 
 
         foreach ($student as $k => $v) 
@@ -381,6 +381,7 @@ class Student_Details{
         echo "<td>".$dob."</td>";
         echo "<td>".$grade."</td>";
         echo "<td>";
+        
         foreach($stu as $k => $v){
             
             if($v->sid === $sid){
@@ -391,7 +392,6 @@ class Student_Details{
                 
                 }
             }
-            
         }
         echo "</td>";
         echo "<td>".$status."</td>";

@@ -159,7 +159,7 @@ $subject=
         *
         * @var array $stu
         * 
-        * Stores student array
+        * Stores student array objects
         * 
         */
     $stu=array();
@@ -200,7 +200,7 @@ $subject=
     *
     * @var array $sub
     * 
-    * Stores subject array
+    * Stores subject array objects
     * 
     */
     $sub=array();

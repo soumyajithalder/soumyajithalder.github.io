@@ -42,8 +42,21 @@ class College{
     
 }
 
+    /**
+    * 
+    * @var array $col
+    * 
+    * Stores college array objects
+    *
+    */
     $col=[];
     
+
+    /**
+    * @var array $college
+    * 
+    * College array
+    */
     foreach($college as $k => $v){
     
         $object = new College($v['cid'],$v['cname']);
@@ -87,6 +100,13 @@ $documents=
 
 class Documents{
     
+    /**
+    *
+    * Class Documents
+    * @var $doc_name,$doc_type,$doc_college,$sent_status
+    * 
+    * Initialize Document name, Document type, College ID for the Document, Sent Status
+    */
     public $doc_name,$doc_type,$doc_college,$sent_status;
     
     function __construct($doc_name,$doc_type,$doc_college,$sent_status){
@@ -99,40 +119,50 @@ class Documents{
     
 }
 
+    /**
+    * 
+    * @var array $docs
+    * 
+    * Stores documents array objects
+    *
+    */
 
-$docs=[];
+    $docs=[];
 
-$arr=[];
+    // Separate array to store Document details for each College Object
 
+    $arr=[];
+
+    /**
+    * @var array $documents
+    * 
+    * Documents array
+    */
     foreach($documents as $k => $v){
     
         $object= new Documents($v['doc_name'],$v['doc_type'],$v['doc_college'],$v['sent_status']);
         
         $docs[]=$object;
     
-    foreach($col as $k2 => $v2){
+        foreach($col as $k2 => $v2){
+            
+            if($v['doc_college'] === ''){
+            
+                $v2->arr[$k]['doc_name']=$v['doc_name'];
+                $v2->arr[$k]['doc_type']=$v['doc_type'];
+                $v2->arr[$k]['sent_status']=$v['sent_status'];
+            
+            }
         
-        if($v['doc_college'] === ''){
+            else if($v['doc_college'] === $v2->cid){
             
-            $v2->arr[$k]['doc_name']=$v['doc_name'];
-            $v2->arr[$k]['doc_type']=$v['doc_type'];
-            $v2->arr[$k]['sent_status']=$v['sent_status'];
+                $v2->arr[$k]['doc_name']=$v['doc_name'];
+                $v2->arr[$k]['doc_type']=$v['doc_type'];
+                $v2->arr[$k]['sent_status']=$v['sent_status'];
             
+            }
         }
-        
-        else if($v['doc_college'] === $v2->cid){
-            
-            $v2->arr[$k]['doc_name']=$v['doc_name'];
-            $v2->arr[$k]['doc_type']=$v['doc_type'];
-            $v2->arr[$k]['sent_status']=$v['sent_status'];
-            
-            
-        }
-        
-        
     }
-    
-}
 
     foreach($col as $k => $v){
         
@@ -147,9 +177,6 @@ $arr=[];
             else
                 echo "Sent Status: Fail<br>";
             
-        }
-        
+        }   
     }
-    
-
 ?>

@@ -129,9 +129,8 @@ class Documents{
 
     $docs=[];
 
-    // Separate array to store Document details for each College Object
 
-    $arr=[];
+    $arr=[]; // Separate array to store Document details for each College Object
 
     /**
     * @var array $documents

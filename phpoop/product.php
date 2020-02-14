@@ -40,13 +40,16 @@ $array=array(
 
 
     $p_arr=[]; //Array of product objects
-
+    $c_arr=[]; //separate array to store category count
+    $product=[]; //separate arra to store product
     
     foreach($array as $k => $v){
         
         
         $object=new Product($v['pd'],$v['sp'],$v['sd'],$v['ct']);
         $p_arr[]=$object;
+        $c_arr[$v['ct']]=0;
+        $product[$v['pd']]="";
         
     }
 
@@ -90,6 +93,43 @@ $array=array(
     }
 
     usort($p_arr,'comparator_2'); // sort $p_arr accoring to date in ascending order
+
+
+
+    /**
+     *
+     * @param $c_key
+     * Takes category key
+     * 
+     * Add product count to corresponding category
+     *
+     * @var global $p_arr,$product
+     */
+    function add_product($c_key){
+        global $p_arr,$product;
+        $count=1;
+        foreach ($p_arr as $k => $v) {
+            if($v->ct==$c_key){
+                if($product[$v->pd]!=""){
+                    $count=$product[$v->pd];
+                    $v->ct=$c_key."-P".$count;
+                    $count+=1;
+                }
+                else {
+                    $v->ct=$c_key."-P".$count;
+                    $product[$v->pd]=$count;
+                    $count+=1;
+                }
+            }
+        }
+    }
+
+
+    // Add Product count to corresponding category
+
+    foreach($c_arr as $k=>$v){
+        add_product($k);
+    }
 
 
     echo "<pre>";

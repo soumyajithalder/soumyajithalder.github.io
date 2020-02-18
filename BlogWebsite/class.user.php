@@ -1,11 +1,10 @@
 <?php
-    include 'db_config.php';
-
     class User{
         
         public $db;
         
         function __construct(){
+            require_once ("db_config.php");
             $this->db=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
             
             if(mysqli_connect_errno()){

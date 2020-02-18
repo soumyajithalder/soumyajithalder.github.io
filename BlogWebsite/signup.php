@@ -1,5 +1,5 @@
 <?php
-    include 'class.user.php';
+    include_once ("class.user.php");
     $user=new User();
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);

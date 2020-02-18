@@ -1,51 +1,50 @@
 <?php
-    require_once 'db_config2.php';
-
-    /*class Blogs{
-        
-        public $id,$title,$posts,$author,$date_posted,$image;
-        
-        function __construct($ID=null,$TITLE=null,$POSTS=null,$AUTHORID=null,$DATE=null){
-            if(!empty($ID))
-                $this->id=$ID;
-            if(!empty($TITLE))
-                $this->title=$TITLE;
-            if(!empty($POSTS))
-                $this->post=$POSTS;
-            if(!empty($AUTHORID)){
-                $sql = mysqli_query("SELECT fullname FROM users WHERE uid = ".$AUTHORID);
-                $row = mysqli_fetch_array($sql);
-                $this->author = $row["fullname"];   
-            }
-            if(!empty($DATE))
-                $this->date_posted=$DATE;
-        }
-        
-        
-    }*/
-
     class Blogs{
         
-        public $title,$post,$author,$db2;
+        public $db;
         
-        function __construct($title,$post,$author){
-            
-            $this->db2=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-            $this->title=$title;
-            $this->author=$author;
-            $this->post=$post;
+        function __construct(){
+            require_once ("db_config.php");
+            $this->db=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
         }
         
-        public function add_posts($title,$post,$author){
-            $sql="INSERT INTO blog_posts (title,post,author) VALUES ('".$title."','".$post."','".$author."')";
-            $result=mysqli_query($this->db2,$sql);
+        //date('l jS \of F Y h:i:s A');
+        
+        public function add_posts($title,$post,$authorId,$date){
+            $sql="INSERT INTO blog_posts (title,post,author,date_posted) VALUES ('".$title."','".$post."',(SELECT fullname from users WHERE uid='".$authorId."'),'".$date."');";
+            if($title==""||$post==""){
+                echo "Please complete your post";
+                return;
+            }
+            $result=mysqli_query($this->db,$sql);
             return $result;
         }
         
         public function show_posts(){
-            $sql2="SELECT * FROM blog_posts";
-            $result=mysqli_query($this->db2,$sql2);
-            $data=mysqli_fetch_array($result);
+            $sql2="SELECT * FROM blog_posts ORDER BY id DESC";
+            $result=mysqli_query($this->db,$sql2);
+            $row=$result->num_rows;
+            if($row==0){
+                return false;
+            }
+            else{
+                return $result;
+            }
+        }
+        
+        public function delete_posts($id){
+            $sql3="DELETE FROM blog_posts WHERE id='".$id."';";
+            mysqli_query($this->db,$sql3);
+        }
+        
+        public function edit_posts($id,$title,$post,$author,$date){
+            $sql4="UPDATE blog_posts SET title='".$title."', post='".$post."', author='".$author."', date_posted='".$date."' WHERE id=$id;";   
+            if($title==""||$post==""||$author==""){
+                echo "Please complete your post";
+                return;
+            }
+            $result=mysqli_query($this->db,$sql4);
+            return $result;
         }
     }
 ?>

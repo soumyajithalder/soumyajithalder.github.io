@@ -1,6 +1,6 @@
    <?php
     session_start();
-    include 'class.user.php';
+    include_once ("class.user.php");
     $user=new User();
 
     if(isset($_REQUEST['submit'])){

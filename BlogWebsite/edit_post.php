@@ -3,18 +3,17 @@
     include_once ("class.blog.php");
     include_once ("logout.php");
     $blog=new Blogs();
-    //$date=date('l jS \of F Y h:i:s A');
-    $date=date('Y-m-d, H:i:s');
-    $authorId=$_SESSION['uid'];
-    if(isset($_REQUEST['submit'])){
+    $pid=$_GET['pid'];
+    $date=date('Y-m-d, h:i:s');
+    if(isset($_REQUEST['update'])){
         extract($_REQUEST);
-        $add_post=$blog->add_posts($title,$post,$authorId,$date);
-        if($add_post){
-           $_SESSION['add']=1;
+        $edit_post=$blog->edit_posts($pid,$title,$post,$author,$date);
+        if($edit_post){
+           $_SESSION['edit']=1;
         }
         else
         {
-            $_SESSION['add']=0;
+            $_SESSION['edit']=0;
         }
     }
 ?>
@@ -23,7 +22,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Blog Posts</title>
+    <title>Edit Blog Posts</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="style.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -34,13 +33,14 @@
    <div id="formContent">
     <form enctype="multipart/form-data" method="post">
         <input type="text" name="title" placeholder="Title"><br>
+        <input type="text" name="author" placeholder="Author"><br>
         <textarea name="post" id="post" cols="34" rows="10" placeholder="Content"></textarea><br>
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="update" value="Update">
     </form>
-    <?php if(isset($_SESSION['add'])&&($_SESSION['add']==1)) {?>
-        Post Added. <a href="blog.php">Show Blog</a>
-    <?php } unset($_SESSION['add']);
-       ?>
+        <?php if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)){?>
+            Post Updated <a href="blog.php">Show Blog</a>
+        <?php } 
+            unset($_SESSION['edit']);?>
             <div>
                 <a href="blog.php?q=logout"><input type="submit" class="fourth" value="LogOut"></a>
             </div>

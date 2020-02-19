@@ -1,13 +1,13 @@
    <?php
     session_start();
-    include_once ("class.user.php");
+    include_once ("includes/class.user.php");
     $user=new User();
 
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
         $login=$user->login_check($username,$password);
         if($login){
-            header('Location: blog.php');
+            header('Location: my_post.php');
         }
         else{
             $_SESSION['login']="0";
@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <title>Log In</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>

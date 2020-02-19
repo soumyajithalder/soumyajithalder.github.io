@@ -4,10 +4,18 @@
     include_once ("logout.php");
     $blog=new Blogs();
     $pid=$_GET['pid'];
+    
+    if(count($_FILES) > 0) {
+        if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+            $imgData =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+        }
+    }
+    
     $date=date('Y-m-d, h:i:s');
+    $authorId=$_SESSION['uid'];
     if(isset($_REQUEST['update'])){
         extract($_REQUEST);
-        $edit_post=$blog->edit_posts($pid,$title,$post,$author,$date);
+        $edit_post=$blog->edit_posts($pid,$title,$post,$authorId,$date,$imgData);
         if($edit_post){
            $_SESSION['edit']=1;
         }
@@ -33,12 +41,12 @@
    <div id="formContent">
     <form enctype="multipart/form-data" method="post">
         <input type="text" name="title" placeholder="Title"><br>
-        <input type="text" name="author" placeholder="Author"><br>
         <textarea name="post" id="post" cols="34" rows="10" placeholder="Content"></textarea><br>
+        <input type="file" name="userImage">
         <input type="submit" name="update" value="Update">
     </form>
         <?php if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)){?>
-            Post Updated <a href="blog.php">Show Blog</a>
+            Post Updated <a href="my_post.php">Show Blog</a>
         <?php } 
             unset($_SESSION['edit']);?>
             <div>

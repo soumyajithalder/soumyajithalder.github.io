@@ -1,6 +1,8 @@
 <?php
+    use Blogs\Blogs;
+        
     session_start();
-    include_once ("includes/class.blog.php");
+    include_once ("./Blogs/Blogs.php");
     include_once ("logout.php");
     $blog=new Blogs();
     //$date=date('l jS \of F Y h:i:s A');
@@ -31,13 +33,14 @@
     <meta charset="UTF-8">
     <title>Add Blog Posts</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
    <div id="formContent">
+       <h2>Add Blog Post</h2>
     <form enctype="multipart/form-data" method="post">
         <input type="text" name="title" placeholder="Title"><br>
         <textarea name="post" id="post" cols="34" rows="10" placeholder="Content"></textarea><br>
@@ -49,7 +52,7 @@
     <?php } unset($_SESSION['add']);
        ?>
             <div>
-                <a href="blog.php?q=logout"><input type="submit" class="fourth" value="LogOut"></a>
+                <a href="blog.php"><input type="submit" class="fourth" value="Go To Homepage"></a>
             </div>
         </div>
     </div>

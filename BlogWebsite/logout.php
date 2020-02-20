@@ -1,6 +1,8 @@
 <?php
-    session_start();
-    include_once ("includes/class.user.php");
+    use User\User;
+
+    include_once ("./User/User.php");
+
     $user = new User(); 
     $uid = $_SESSION['uid'];
     if (!$user->get_session()){
@@ -9,6 +11,7 @@
 
     if (isset($_GET['q'])){
         $user->logout();
-        header('Location:login.php');
+        unset($_SESSION['login']);
+        header('Location:blog.php');
     }
 ?>

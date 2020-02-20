@@ -1,6 +1,8 @@
 <?php
+    use Blogs\Blogs;
+
     session_start();
-    include_once ("includes/class.blog.php");
+    include_once ("./Blogs/Blogs.php");
     $blog=new Blogs();
     if(!isset($_GET['pid'])){
         header("Location: blog.php");

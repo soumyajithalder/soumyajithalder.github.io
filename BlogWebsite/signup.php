@@ -1,5 +1,7 @@
 <?php
-    include_once ("includes/class.user.php");
+    use User\User;
+
+    include_once ("./User/User.php");
     $user=new User();
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
@@ -41,6 +43,7 @@
   </form>  -->
   <div class="wrapper fadeInDown">
   <div id="formContent">
+   <h2>Sign Up</h2>
     <form enctype="multipart/form-data" method="post">
       <input type="text" id="login" class="fadeIn third" name="fullname" placeholder="Enter Full Name" required>
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="Enter Username" required>

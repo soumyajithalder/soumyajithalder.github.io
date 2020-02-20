@@ -1,6 +1,8 @@
    <?php
+    use User\User;
+
     session_start();
-    include_once ("includes/class.user.php");
+    include_once ("./User/User.php");
     $user=new User();
 
     if(isset($_REQUEST['submit'])){
@@ -29,6 +31,7 @@
 <body>
   <div class="wrapper fadeInDown">
   <div id="formContent">
+   <h2>Log In</h2>
     <form enctype="multipart/form-data" method="post">
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="Enter Username" required>
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password" required>

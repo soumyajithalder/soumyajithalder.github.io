@@ -1,11 +1,13 @@
 <?php
+    namespace Blogs;
+
     class Blogs{
         
         public $db;
         
         function __construct(){
             require_once ("db_config.php");
-            $this->db=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+            $this->db=new \mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
         }
         
         //date('l jS \of F Y h:i:s A');

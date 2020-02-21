@@ -19,11 +19,12 @@
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </style>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
-<body class="w3-light-grey">
+<body class="w3-light-grey w3-animate-bottom">
   <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
-          <a href="blog.php" class="w3-bar-item w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">BLOG HOME</a>
-          <a href="my_post.php?q=logout" class="w3-bar-item w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
+          <a href="blog.php" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">BLOG HOME</a>
+          <a href="my_post.php?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
       </div>
       <div class="w3-content" style="margin-top:4em;max-width:1150px">
       <header class="w3-container w3-center w3-padding-24"> 
@@ -37,6 +38,19 @@
                 $id=$row['id'];
                 $title=$row['title'];
                 $content=$row['post'];
+                
+                $content = strip_tags($content);
+                    if (strlen($content) > 200) {
+
+                    // truncate string
+                    $stringCut = substr($content, 0, 200);
+                    $endPoint = strrpos($stringCut, ' ');
+
+                    //if the string doesn't contain any space then it will cut without word basis.
+                    $content = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                    $content .= "<b>... </b>";
+                }
+                
                 $author=$row['author'];
                 $tmp=$row['date_posted'];
                 $date=date('M jS, Y h:i A',strtotime($tmp));
@@ -51,8 +65,9 @@
                 <div class='w3-container'>
                 <hr>
                     <div class='w3-row'>
-                        <a class='w3-button w3-padding-large w3-white w3-border' href='edit_post.php?pid=$id'>Edit</a>
-                        <a class='w3-button w3-padding-large w3-white w3-border' href='delete_post.php?pid=$id'>Delete</a>
+                        <a href='read_post.php?pid=$id' class='w3-button w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
+                        <a class='w3-button w3-padding-large w3-white w3-border' href='edit_post.php?pid=$id'><b>EDIT</b></a>
+                        <a class='w3-button w3-padding-large w3-white w3-border' href='delete_post.php?pid=$id' onclick='return checkDelete()'><b>DELETE</b></a>
                     </div>
                 </div>
                 ";
@@ -117,7 +132,7 @@
     -->
     <div class="w3-container">
        <div class="w3-row">
-            <a href="add_post.php"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="Add Blog Post"></a>
+            <b><a href="add_post.php"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
         </div>
     </div>
     <hr>

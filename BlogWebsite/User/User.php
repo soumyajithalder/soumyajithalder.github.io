@@ -50,6 +50,13 @@
             }
         }
         
+        public function get_fullname($uid){
+           $sqlname="SELECT fullname FROM users WHERE uid=$uid";
+	       $result=mysqli_query($this->db,$sqlname);
+	       $data=mysqli_fetch_array($result);
+	       echo $data['fullname']."'s BLOGS";
+        }
+        
         public function get_session(){
             return $_SESSION['login'];
         }

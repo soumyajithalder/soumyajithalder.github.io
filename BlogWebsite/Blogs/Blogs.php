@@ -22,8 +22,8 @@
             return $result;
         }
         
-        public function show_posts(){
-            $sql2="SELECT * FROM blog_posts ORDER BY id DESC";
+        public function show_posts($offset,$pages){
+            $sql2="SELECT * FROM blog_posts ORDER BY id DESC LIMIT $offset, $pages";
             $result=mysqli_query($this->db,$sql2);
             $row=$result->num_rows;
             if($row==0){
@@ -61,6 +61,20 @@
             else{
                 return $result;
             }
+        }
+        
+        public function read_more($id){
+            $sql6="SELECT * from blog_posts WHERE id='".$id."';";
+            $result=mysqli_query($this->db,$sql6);
+            return $result;
+        }
+        
+        public function total_pages($pages){
+            $total_pages_sql = "SELECT COUNT(*) FROM blog_posts";
+            $result = mysqli_query($this->db,$total_pages_sql);
+            $total_rows = mysqli_fetch_array($result)[0];
+            $total_pages = ceil($total_rows / $pages);
+            return $total_pages;
         }
     }
 ?>

@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Dbc\\": "/Model/Dbc/",
+            "User\\": "/Model/User/",
+            "Blogs\\": "/Model/Blogs/"
+        }
+    }
+}

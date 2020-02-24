@@ -1,7 +1,8 @@
 <?php
-    require_once 'vendor/autoload.php';
-
+    require_once '../vendor/autoload.php';
+    use Dbc\Dbc;
     use User\User;
+    $db=new Dbc();
     $user=new User();
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
@@ -15,6 +16,10 @@
     }
 ?>
 
+<!--
+/**
+* Send this to View, should not be in Controller
+*/
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,20 +32,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-  <!--<form action="" enctype="multipart/form-data" method="post">
-      <input type="text" name="username" placeholder="Enter Username">
-      <input type="password" name="password" placeholder="Enter Password">
-      <input type="submit" value="Sign Up" name="signup">
-      
-     Signed Up Successfully.<a href="login.php"> Click to Login</a>
-                       
-                       You Have not Signed Up Successfully.
-                       
-                       //unset($_SESSION['signup']);
-                        ?>
-    <br><br>Already Registered? <a href="login.php"> Login </a>
-     <input type="submit" value="Logout" name="logout">
-  </form>  -->
   <div class="wrapper fadeInDown">
   <div id="formContent">
    <h2>Sign Up</h2>
@@ -64,3 +55,4 @@
 </div>
 </body>
 </html>
+-->

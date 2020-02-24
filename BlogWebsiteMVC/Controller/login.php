@@ -1,6 +1,9 @@
    <?php
-    require 'vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     use User\User;
+    use Dbc\Dbc;
+    
+    $db=new Dbc();
 
     session_start();
     $user=new User();
@@ -17,6 +20,11 @@
     }
 ?>
 
+
+<!--
+/**
+* Send to View, Should only contain Controller part
+*/
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,3 +57,6 @@
 </div>
 </body>
 </html>
+
+
+-->

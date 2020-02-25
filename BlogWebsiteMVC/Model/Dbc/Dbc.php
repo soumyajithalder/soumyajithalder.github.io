@@ -6,7 +6,7 @@
         protected $db;
         
         function __construct(){
-            require_once ("./Model/db_config.php");
+            require_once ("db_config.php");
             $this->db=new \mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
             
             if(mysqli_connect_errno()){

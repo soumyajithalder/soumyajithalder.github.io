@@ -19,11 +19,9 @@
     </form>
     <?php 
         require_once ("../Controller/login.php");
-        if(isset($_SESSION['login'])){ ?>
-             <strong>Sorry !</strong> Email/Password is wrong. SIGN UP or re-enter details.
-    <?php }?>
+    ?>
     <div class="form-group">
-        Not Registered? <a class="underlineHover" href="signup_view.php">Sign Up</a>
+        Not Registered? <a class="underlineHover" href="./signup_view.php">Sign Up</a>
     </div>
 
   </div>

@@ -64,7 +64,6 @@
                 
                 $admin="
                 <div class='w3-container'>
-                <hr>
                     <div class='w3-row'>
                         <a href='read_post.php?pid=$id' class='w3-button w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
                         <a class='w3-button w3-padding-large w3-white w3-border' href='edit_post.php?pid=$id'><b>EDIT</b></a>
@@ -92,7 +91,7 @@
                     </div>
                     <div class='w3-container'>
                         <p>$content</p>
-                    </div>$admin;
+                    </div><p>$admin</p>
                 </div>
             </div>
         </div>

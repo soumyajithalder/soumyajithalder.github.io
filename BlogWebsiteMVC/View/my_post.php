@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog Home</title>
+    <title>My Posts</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </style>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
-<?php require_once ("Controller/home.php"); ?>
-<body class="w3-light-grey w3-animate-bottom"> 
-      <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
-          <a href="./View/my_post.php" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
-          <?php if($session){?>
-            <a href="./View/my_post.php?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
-        <?php } else{ ?>
-            <a href="./View/login_view.php" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGIN</a>
-        <?php } ?>
+<body class="w3-light-grey w3-animate-bottom">
+  <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
+          <a href="../blog.php" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">BLOG HOME</a>
+          <a href="my_post.php?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
       </div>
       <div class="w3-content" style="margin-top:4em;max-width:1150px">
       <header class="w3-container w3-center w3-padding-24"> 
-      <h1><b>BLOG HOME</b></h1>
+      <h1><b>MY BLOG POSTS</b></h1>
     </header>
-    <?php foreach($posts as $post):?>
+    <?php require_once ("../Controller/mypost.php");
+        foreach($posts as $post):      
+    ?>
     <div class='w3-row-padding'>
         <div class='w3-col s12'>
             <div class='w3-card-4 w3-white'>
@@ -62,7 +60,9 @@
                         </div>
                         <div class='w3-container'>
                             <div class='w3-row'><p>
-                                <a href="View/read_post.php?pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
+                                <a href="read_post.php?pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
+                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="edit_post.php?pid=<?php echo $post['id'] ?>"><b>EDIT</b></a>
+                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="../Controller/deletepost.php?pid=<?php echo $post['id'] ?>" onclick='return checkDelete()'><b>DELETE</b></a></p>
                             </div>
                         </div>
                     </div>
@@ -70,20 +70,13 @@
             </div>
         </div>
     </div><hr>
-    <?php endforeach ?> 
-    <?php if(!$res){ ?>
-        <div class='w3-container'><div class='w3-row'><?php echo $err ?></div></div><hr>    
-    <?php }?>
+    <?php endforeach ?>
     <div class="w3-container">
        <div class="w3-row">
-            <b><a href="./View/add_post.php"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
+            <b><a href="add_post.php"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
         </div>
     </div>
     <hr>
     </div>
-<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <a href="?pageno=<?php if($pageno <= 1){echo '1';} else { echo $pageno-1;} ?>" class="w3-button w3-black w3-padding-large w3-margin-bottom <?php if($pageno<=1){echo 'w3-disabled';} ?>">Previous</a>
-  <a href="?pageno=<?php if($pageno <=1) {echo $pageno+1;} else {echo $total_pages;} ?>" class="w3-button w3-black w3-padding-large w3-margin-bottom <?php if($pageno >= $total_pages){ echo 'w3-disabled';} ?>">Next »</a>
-</footer>
 </body>
 </html>

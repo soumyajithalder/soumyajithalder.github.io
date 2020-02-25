@@ -11,6 +11,10 @@ class ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7
         array (
             'User\\' => 5,
         ),
+        'D' => 
+        array (
+            'Dbc\\' => 4,
+        ),
         'B' => 
         array (
             'Blogs\\' => 6,
@@ -20,11 +24,15 @@ class ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7
     public static $prefixDirsPsr4 = array (
         'User\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/User',
+            0 => __DIR__ . '/../..' . '/Model/User',
+        ),
+        'Dbc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Model/Dbc',
         ),
         'Blogs\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Blogs',
+            0 => __DIR__ . '/../..' . '/Model/Blogs',
         ),
     );
 

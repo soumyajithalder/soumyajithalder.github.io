@@ -1,7 +1,7 @@
    <?php
-    require_once '../vendor/autoload.php';
+    require_once './vendor/autoload.php';
     use Dbc\Dbc;
-    require_once '../vendor/autoload.php';
+    require_once './vendor/autoload.php';
     use User\User;
     
     $db=new Dbc();
@@ -13,7 +13,7 @@
         extract($_REQUEST);
         $login=$user->login_check($username,$password);
         if($login){
-            header('Location: my_post.php');
+            header('Location: index.php?page=my_post');
         }
         else{
             echo "Not Signed Up Successfully";

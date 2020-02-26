@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -19,16 +19,16 @@
       <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up">
     </form>
         <?php 
-            require_once ("../Controller/signup.php");
+            require_once ("./Controller/signup.php");
             if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
-             Signed Up Successfully.<a href="./login_view.php"> Click to Login</a>
+             Signed Up Successfully.<a href="index.php?page=login"> Click to Login</a>
         <?php } elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>
                        User already exists.
         <?php }
                        //unset($_SESSION['signup']);
         ?>
     <div class="form-group">
-        Already Registered? <a class="underlineHover" href="./login_view.php"> Login </a>
+        Already Registered? <a class="underlineHover" href="index.php?page=login"> Login </a>
     </div>
   </div>
 </div>

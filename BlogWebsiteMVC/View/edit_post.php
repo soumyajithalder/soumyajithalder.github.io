@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit Blog Posts</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -18,13 +18,13 @@
         <input type="file" name="userImage">
         <input type="submit" name="update" value="Update">
     </form>
-        <?php require_once ("../Controller/editpost.php");
+        <?php require_once ("./Controller/editpost.php");
             if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)){?>
-                Post Updated <a href="../View/my_post.php">Show Blog</a>
+                Post Updated <a href="index.php?page=my_post">Show Blog</a>
         <?php } 
             unset($_SESSION['edit']);?>
             <div>
-                <a href="../blog.php"><input type="submit" class="fourth" value="Go To Homepage"></a>
+                <a href="index.php"><input type="submit" class="fourth" value="Go To Homepage"></a>
             </div>
         </div>
     </div>

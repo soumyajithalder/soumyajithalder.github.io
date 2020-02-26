@@ -1,7 +1,7 @@
 <?php
-    require_once '../vendor/autoload.php';
+    require_once './vendor/autoload.php';
     use Dbc\Dbc;
-    require_once '../vendor/autoload.php';
+    require_once './vendor/autoload.php';
     use User\User;
     $db=new Dbc();
     $user=new User();

@@ -21,28 +21,28 @@
         }
         switch($requested_page) {
             case "login":
-                require 'View/login_view.php';
+                require_once 'Controller/login.php';
                 break;
             case "signup":
-                require 'View/signup_view.php';
+                require_once 'Controller/signup.php';
                 break;
             case "home":
-                require 'View/blog.php';
+                require_once 'Controller/home.php';
                 break;
             case "my_post":
-                require 'View/my_post.php';
+                require_once 'Controller/mypost.php';
                 break;
             case "read":
-                require 'View/read_post.php';
+                require_once 'Controller/readpost.php';
                 break;
             case "add":
-                require 'View/add_post.php';
+                require_once 'Controller/addpost.php';
                 break;
             case "edit":
-                require 'View/edit_post.php';
+                require_once 'Controller/editpost.php';
                 break;
             case "delete":
-                require 'Controller/deletepost.php';
+                require_once 'Controller/deletepost.php';
                 break;
             default:
                 include(__DIR__."/404.php");

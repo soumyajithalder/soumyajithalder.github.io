@@ -26,4 +26,5 @@
             $_SESSION['edit']=0;
         }
     }
+    require_once ("./View/edit_post.php");
 ?>

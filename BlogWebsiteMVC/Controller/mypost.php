@@ -16,6 +16,8 @@
             }
         }
         else{
+            $err='Nothing to display';
             echo "<div class='w3-container'><div class='w3-row'>Nothing to display</div></div><hr>";
         }
+    require_once ("./View/my_post.php");
 ?>

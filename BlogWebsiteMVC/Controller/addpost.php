@@ -25,4 +25,5 @@
             $_SESSION['add']=0;
         }
     }
+    require_once ("./View/add_post.php");
 ?>

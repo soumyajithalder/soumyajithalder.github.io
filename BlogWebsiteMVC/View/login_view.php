@@ -17,9 +17,6 @@
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="Enter Password" required>
       <input type="submit" name="submit" class="fadeIn fourth" value="Log In">
     </form>
-    <?php 
-        require_once ("./Controller/login.php");
-    ?>
     <div class="form-group">
         Not Registered? <a class="underlineHover" href="index.php?page=signup">Sign Up</a>
     </div>

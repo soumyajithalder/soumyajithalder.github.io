@@ -18,8 +18,7 @@
         <input type="file" name="userImage">
         <input type="submit" name="submit" value="Submit">
     </form>
-    <?php   require_once ("./Controller/addpost.php"); 
-       if(isset($_SESSION['add'])&&($_SESSION['add']==1)) {?>
+    <?php if(isset($_SESSION['add'])&&($_SESSION['add']==1)) {?>
         Post Added. <a href="index.php?page=my_post">Show Blog</a>
     <?php } unset($_SESSION['add']);
        ?>

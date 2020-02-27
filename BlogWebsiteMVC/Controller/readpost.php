@@ -12,7 +12,5 @@
             $posts[]=$row;
         }
     }
-    else{
-        echo "<div class='w3-container'><div class='w3-row'>Nothing to display</div></div><hr>";
-    }
+require_once ("./View/read_post.php");
 ?>

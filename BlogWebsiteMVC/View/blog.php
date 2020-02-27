@@ -9,7 +9,6 @@
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </style>
 </head>
-<?php require_once ("./Controller/home.php"); ?>
 <body class="w3-light-grey w3-animate-bottom"> 
       <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
           <a href="index.php?page=my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>

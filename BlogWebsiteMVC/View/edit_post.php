@@ -18,8 +18,7 @@
         <input type="file" name="userImage">
         <input type="submit" name="update" value="Update">
     </form>
-        <?php require_once ("./Controller/editpost.php");
-            if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)){?>
+        <?php if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)){?>
                 Post Updated <a href="index.php?page=my_post">Show Blog</a>
         <?php } 
             unset($_SESSION['edit']);?>

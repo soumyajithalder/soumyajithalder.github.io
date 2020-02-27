@@ -27,9 +27,11 @@
             while($row=mysqli_fetch_assoc($res)){
                 $posts[]=$row;
             }
+            //var_dump($posts);
         }
         else{
             //echo "<div class='w3-container'><div class='w3-row'>Nothing to display</div></div><hr>";
             $err='Nothing to display';
         }
+    require_once ("./View/blog.php");
 ?>

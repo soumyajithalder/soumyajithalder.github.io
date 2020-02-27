@@ -19,9 +19,7 @@
       <header class="w3-container w3-center w3-padding-24"> 
       <h1><b>MY BLOG POSTS</b></h1>
     </header>
-    <?php require_once ("./Controller/mypost.php");
-        foreach($posts as $post):      
-    ?>
+    <?php foreach($posts as $post):?>
     <div class='w3-row-padding'>
         <div class='w3-col s12'>
             <div class='w3-card-4 w3-white'>
@@ -71,6 +69,9 @@
         </div>
     </div><hr>
     <?php endforeach ?>
+    <?php if(!$res){ ?>
+        <div class='w3-container'><div class='w3-row'><?php echo $err ?></div></div><hr>    
+    <?php }?>
     <div class="w3-container">
        <div class="w3-row">
             <b><a href="index.php?page=add"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>

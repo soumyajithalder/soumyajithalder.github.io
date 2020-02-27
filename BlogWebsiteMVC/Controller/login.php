@@ -8,7 +8,9 @@
 
     session_start();
     $user=new User();
-
+    
+    require_once ("./View/login_view.php");
+    
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
         $login=$user->login_check($username,$password);

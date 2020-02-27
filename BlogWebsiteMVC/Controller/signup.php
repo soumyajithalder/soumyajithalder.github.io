@@ -5,6 +5,9 @@
     use User\User;
     $db=new Dbc();
     $user=new User();
+    
+    require_once ("./View/signup_view.php");
+
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
         $signup=$user->signup_user($fullname,$username,$password);

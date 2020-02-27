@@ -19,7 +19,6 @@
       <input type="submit" name="submit" class="fadeIn fourth" value="Sign Up">
     </form>
         <?php 
-            require_once ("./Controller/signup.php");
             if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
              Signed Up Successfully.<a href="index.php?page=login"> Click to Login</a>
         <?php } elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>

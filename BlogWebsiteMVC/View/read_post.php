@@ -17,9 +17,7 @@
       <header class="w3-container w3-center w3-padding-24"> 
       <h1><b>FULL POST</b></h1>
     </header>
-    <?php require_once ("./Controller/readpost.php");
-        foreach($posts as $post):
-    ?>
+    <?php foreach($posts as $post):?>
     <div class='w3-row-padding'>
         <div class='w3-col s12'>
             <div class='w3-card-4 w3-white'>

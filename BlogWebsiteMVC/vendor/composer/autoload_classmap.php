@@ -6,4 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Blogs\\Blogs' => $baseDir . '/Model/Blogs/Blogs.php',
+    'Dbc\\Dbc' => $baseDir . '/Model/Dbc/Dbc.php',
+    'User\\User' => $baseDir . '/Model/User/User.php',
 );

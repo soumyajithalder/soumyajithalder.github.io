@@ -36,11 +36,18 @@ class ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7
         ),
     );
 
+    public static $classMap = array (
+        'Blogs\\Blogs' => __DIR__ . '/../..' . '/Model/Blogs/Blogs.php',
+        'Dbc\\Dbc' => __DIR__ . '/../..' . '/Model/Dbc/Dbc.php',
+        'User\\User' => __DIR__ . '/../..' . '/Model/User/User.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc9d180e807dab56b7ca58150937ce5e7::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -45,6 +45,6 @@
                 require_once 'Controller/deletepost.php';
                 break;
             default:
-                include(__DIR__."/404.php");
+                header ("Location: View/404page.php");
         }
 ?>

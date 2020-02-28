@@ -6,12 +6,12 @@
     $user = new User(); 
     $uid = $_SESSION['uid'];
     if (!$user->get_session()){
-        header('Location: ?page=login');
+        header('Location: /index/login');
     }
 
     if (isset($_GET['q'])){
         $user->logout();
         unset($_SESSION['login']);
-        header('Location: index.php');
+        header('Location: /');
     }
 ?>

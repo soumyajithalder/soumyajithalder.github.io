@@ -11,11 +11,11 @@
 </head>
 <body class="w3-light-grey w3-animate-bottom"> 
       <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
-          <a href="index.php?page=my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
+          <a href="/index/my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
           <?php if($session){?>
-            <a href="index.php/my_post.php?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
+            <a href="/index/my_post?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
         <?php } else{ ?>
-            <a href="index.php?page=login" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGIN</a>
+            <a href="/index/login" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGIN</a>
         <?php } ?>
       </div>
       <div class="w3-content" style="margin-top:4em;max-width:1150px">
@@ -61,7 +61,7 @@
                         </div>
                         <div class='w3-container'>
                             <div class='w3-row'><p>
-                                <a href="index.php?page=read&pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
+                                <a href="/index/read?pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
     <?php }?>
     <div class="w3-container">
        <div class="w3-row">
-            <b><a href="index.php?page=add"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
+            <b><a href="/index/add"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
         </div>
     </div>
     <hr>

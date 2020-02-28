@@ -11,7 +11,7 @@
 </head>
 <body class="w3-light-grey w3-animate-bottom">
    <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
-            <a href="index.php?page=my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
+            <a href="/index/my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
     </div>
     <div class="w3-content" style="margin-top:4em;max-width:1150px">
       <header class="w3-container w3-center w3-padding-24"> 
@@ -48,7 +48,7 @@
     <?php endforeach ?>
     <div class="w3-container">
        <div class="w3-row">
-            <b><a href="index.php"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="GO BACK HOME"></a></b>
+            <b><a href="/"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="GO BACK HOME"></a></b>
         </div>
     </div>
     <hr>

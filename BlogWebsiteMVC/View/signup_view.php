@@ -27,7 +27,7 @@
                        //unset($_SESSION['signup']);
         ?>
     <div class="form-group">
-        Already Registered? <a class="underlineHover" href="index.php?page=login"> Login </a>
+        Already Registered? <a class="underlineHover" href="/index/login"> Login </a>
     </div>
   </div>
 </div>

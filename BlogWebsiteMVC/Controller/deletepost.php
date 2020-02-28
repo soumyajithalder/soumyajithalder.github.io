@@ -5,10 +5,10 @@
     session_start();
     $blog=new Blogs();
     if(!isset($_GET['pid'])){
-        header("Location: index.php");
+        header("Location: /");
     }else{
         $pid=$_GET['pid'];
         $blog->delete_posts($pid);
-        header("Location: index.php?page=my_post");
+        header("Location: /index/my_post");
     }
 ?>

@@ -9,7 +9,7 @@
     <div id="container">
         <div class="text">
             <h1 style="text-shadow: -3px 0 0 rgba(255,0,0,.7),3px 0 0 rgba(0,255,255,.7);"> ERROR 404 </h1>
-            <h2 style="text-shadow: -3px 0 0 rgba(255,0,0,.7),3px 0 0 rgba(0,255,255,.7);">GO <a href="../index.php">hom<span>e</span></a>&nbsp; You're Drunk </h2>
+            <h2 style="text-shadow: -3px 0 0 rgba(255,0,0,.7),3px 0 0 rgba(0,255,255,.7);">GO <a href="../index">hom<span>e</span></a>&nbsp; You're Drunk </h2>
         </div>
     </div>
 <!--

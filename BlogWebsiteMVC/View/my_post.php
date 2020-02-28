@@ -12,8 +12,8 @@
 </head>
 <body class="w3-light-grey w3-animate-bottom">
   <div class="w3-bar w3-top w3-xlarge w3-black w3-mobile">
-          <a href="index.php" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">BLOG HOME</a>
-          <a href="index.php?page=my_post&q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
+          <a href="/" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">BLOG HOME</a>
+          <a href="/index/my_post?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
       </div>
       <div class="w3-content" style="margin-top:4em;max-width:1150px">
       <header class="w3-container w3-center w3-padding-24"> 
@@ -58,9 +58,9 @@
                         </div>
                         <div class='w3-container'>
                             <div class='w3-row'><p>
-                                <a href="index.php?page=read&pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
-                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="index.php?page=edit&pid=<?php echo $post['id'] ?>"><b>EDIT</b></a>
-                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="index.php?page=delete&pid=<?php echo $post['id'] ?>" onclick='return checkDelete()'><b>DELETE</b></a></p>
+                                <a href="/index/read?pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
+                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="/index/edit?pid=<?php echo $post['id'] ?>"><b>EDIT</b></a>
+                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="/index/delete?pid=<?php echo $post['id'] ?>" onclick='return checkDelete()'><b>DELETE</b></a></p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
     <?php }?>
     <div class="w3-container">
        <div class="w3-row">
-            <b><a href="index.php?page=add"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
+            <b><a href="/index/add"><input class="w3-button w3-padding-large w3-white w3-border" type="submit" class="fourth" value="ADD BLOG POST"></a></b>
         </div>
     </div>
     <hr>

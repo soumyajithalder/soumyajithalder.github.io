@@ -15,7 +15,7 @@
         extract($_REQUEST);
         $login=$user->login_check($username,$password);
         if($login){
-            header('Location: index.php?page=my_post');
+            header('Location: /index/my_post');
         }
         else{
             echo "Not Signed Up Successfully";

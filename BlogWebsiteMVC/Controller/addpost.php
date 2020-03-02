@@ -1,7 +1,7 @@
 <?php
     require_once './vendor/autoload.php';
     use Blogs\Blogs;
-
+ 
     session_start();
     include_once ("logout.php");
     $blog=new Blogs();
@@ -18,7 +18,7 @@
         extract($_REQUEST);
         $add_post=$blog->add_posts($title,$post,$authorId,$date,$imgData);
         if($add_post){
-           $_SESSION['add']=1;
+           echo "Post Added";
         }
         else
         {

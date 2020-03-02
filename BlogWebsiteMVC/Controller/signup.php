@@ -6,7 +6,6 @@
     $db=new Dbc();
     $user=new User();
     
-    require_once ("./View/signup_view.php");
 
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
@@ -17,5 +16,6 @@
         else{
             $_SESSION['signup']=0;
         }
+        require_once ("./View/login_register.php");
     }
 ?>

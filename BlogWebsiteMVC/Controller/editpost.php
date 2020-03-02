@@ -19,7 +19,7 @@
         extract($_REQUEST);
         $edit_post=$blog->edit_posts($pid,$title,$post,$authorId,$date,$imgData);
         if($edit_post){
-           $_SESSION['edit']=1;
+           echo "Post Updated";
         }
         else
         {

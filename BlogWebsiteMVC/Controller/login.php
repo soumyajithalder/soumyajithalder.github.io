@@ -9,7 +9,7 @@
     session_start();
     $user=new User();
     
-    require_once ("./View/login_view.php");
+    require_once ("./View/login_register.php");
     
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);

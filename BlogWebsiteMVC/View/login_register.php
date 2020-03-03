@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Account of LogIn</title>
-    <link rel="stylesheet" type="text/css" href="./css/signlog.css">
+    <link rel="stylesheet" type="text/css" href="../css/signlog.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form enctype="multipart/form-data" method="post" >
                 <h1>Register</h1>
-                <input class="input" type="text" name="fullname" placeholder="Full Name">
-                <input class="input" type="text" name="username" placeholder="Username">
-                <input class="input" type="password" name="password" placeholder="Password">
+                <input class="input" type="text" name="fullname" placeholder="Full Name" required>
+                <input class="input" type="text" name="username" placeholder="Username" required>
+                <input class="input" type="password" name="password" placeholder="Password" required>
                 <input class="btn" type="submit" name="submit" value="Create Account">
                 <?php 
                 if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
@@ -22,7 +23,6 @@
                 elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>
                     User already exists.
             <?php }
-                //unset($_SESSION['signup']);
             ?>
             </form>
         </div>
@@ -30,9 +30,12 @@
         <div class="form-container sign-in-container">
             <form enctype="multipart/form-data" method="post">
                <h1>Sign In</h1>
-                <input class="input" type="text" name="username" placeholder="Username">
-                <input class="input" type="password" name="password" placeholder="Password">
+                <input class="input" type="text" name="username" placeholder="Username" required>
+                <input class="input" type="password" name="password" placeholder="Password" required>
                 <input class="btn" type="submit" name="submit" value="Log In">
+                <?php if(isset($_SESSION['login'])){ ?>
+                    <p><?php echo $err?></p>
+                <?php }?>
             </form>
         </div>
         
@@ -59,6 +62,7 @@
 
         signUpButton.addEventListener('click', () => {
             container.classList.add("right-panel-active");
+            
         });
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");

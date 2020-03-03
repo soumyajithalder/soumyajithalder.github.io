@@ -9,7 +9,6 @@
     session_start();
     $user=new User();
     
-    require_once ("./View/login_register.php");
     
     if(isset($_REQUEST['submit'])){
         extract($_REQUEST);
@@ -18,8 +17,10 @@
             header('Location: /index/my_post');
         }
         else{
-            echo "Not Signed Up Successfully";
+            $_SESSION['login']="0";
+            $err='Not Signed Up Successfully. Username or Password might be wrong! Please Sign Up';
         }
     }
+    require_once ("./View/login_register.php");
 ?>
 

@@ -8,7 +8,7 @@
     //$date=date('l jS \of F Y h:i:s A');
     if(count($_FILES) > 0) {
         if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-            $imgData =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
+         $imgData=addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
         }
     }
 
@@ -18,7 +18,7 @@
         extract($_REQUEST);
         $add_post=$blog->add_posts($title,$post,$authorId,$date,$imgData);
         if($add_post){
-           echo "Post Added";
+           $_SESSION['add']=1;
         }
         else
         {

@@ -2,16 +2,6 @@
     require_once 'vendor/autoload.php';
 
     $uri=parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    //$uri=basename($uri);
-    //var_dump($uri); exit;
-    //include (__DIR__."/View/blog.php");
-//    if('/soumyajithalder.github.io/BlogWebsiteMVC/index.php' == $uri){
-//        require 'View/blog.php';
-//    }
-
-//    if('/soumyajithalder.github.io/BlogWebsiteMVC/index.php' == $uri){
-//        require 'View/my_post.php';
-//    }
         switch($uri) {
             case "/":
                 require_once 'Controller/home.php';

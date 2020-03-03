@@ -2,7 +2,20 @@
     namespace User;
     use Dbc\Dbc;
 
+    /**
+     * Provides User model to signup and login users
+     * 
+     */
+
     class User extends Dbc{
+        
+      /**
+       * Function handles signing up users
+       *
+       * @param VARCHAR $name, VARCHAR $username, VARCHAR $password
+       *
+       *
+       */
         
         public function signup_user($name,$username,$password){
             $username=$username;
@@ -24,12 +37,18 @@
             }
         }
         
+      /**
+       * Function handles logging in users and checks wrong username
+       *
+       * @param VARCHAR $username, VARCHAR $password
+       *
+       *
+       */
+        
         public function login_check($username,$password){
             $username=$username;
             $password=$password;
             $sql2="SELECT uid from users WHERE uname='".$username."' and password='".$password."'";
-//            echo $sql2;
-//            exit;
             $result=mysqli_query($this->db,$sql2);
             $data=mysqli_fetch_array($result);
             $row=$result->num_rows;
@@ -53,12 +72,5 @@
             $_SESSION['login']=false;
             session_destroy();
         }
-        
-//        public function get_fullname($uid){
-//        $sqlname="SELECT fullname FROM users WHERE uid=$uid";
-//	       $result=mysqli_query($this->db,$sqlname);
-//	       $data=mysqli_fetch_array($result);
-//	       echo $data['fullname']."'s BLOGS";
-//        }
     }
 ?>

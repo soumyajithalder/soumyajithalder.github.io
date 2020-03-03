@@ -3,7 +3,7 @@
     use Blogs\Blogs;
 
     session_start();
-    include_once ("logout.php");
+    //include_once ("logout.php");
     $blog=new Blogs();
     $pid=$_GET['pid'];
     
@@ -19,12 +19,11 @@
         extract($_REQUEST);
         $edit_post=$blog->edit_posts($pid,$title,$post,$authorId,$date,$imgData);
         if($edit_post){
-           $_SESSION['edit']=1;
+           echo "Post Updated";
         }
         else
         {
             $_SESSION['edit']=0;
         }
     }
-    require_once ("./View/edit_post.php");
 ?>

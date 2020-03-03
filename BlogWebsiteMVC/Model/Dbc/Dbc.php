@@ -1,7 +1,20 @@
 <?php
     namespace Dbc;
 
+    /**
+     * Provides Batabase Connection
+     */
+
     class Dbc{
+        
+       /**
+        * Handles Database connection
+        *
+        * @var $db
+        *
+        * Initialize DB server, username, password and database
+        *
+        */
         
         protected $db;
         

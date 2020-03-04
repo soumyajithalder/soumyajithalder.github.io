@@ -16,6 +16,6 @@
         else{
             $_SESSION['signup']=0;
         }
-        require_once ("./View/login_register.php");
     }
+    require_once ("./View/login_register.php");
 ?>

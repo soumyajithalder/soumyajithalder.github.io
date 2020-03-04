@@ -16,17 +16,17 @@
                 <input class="input" type="text" name="username" placeholder="Username" required>
                 <input class="input" type="password" name="password" placeholder="Password" required>
                 <input class="btn" type="submit" name="submit" value="Create Account">
-                <?php 
+                <?php
                 if(isset($_SESSION['signup'])&&($_SESSION['signup']==1)) {?>
                     Signed Up Successfully.<a href="/index/login"> Click to Login</a>
-            <?php } 
+            <?php }
                 elseif(isset($_SESSION['signup'])&&($_SESSION['signup']==0)){ ?>
                     User already exists.
             <?php }
             ?>
             </form>
         </div>
-        
+
         <div class="form-container sign-in-container">
             <form enctype="multipart/form-data" method="post">
                <h1>Sign In</h1>
@@ -38,13 +38,13 @@
                 <?php }?>
             </form>
         </div>
-        
+
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Already Registered!</h1>
                     <p>To keep connected with us please login with your personal info</p>
-                    <button class="btn ghost" id="signIn">Sign In</button>
+                    <a href="/index/login"><button class="btn ghost" id="signIn">Sign In</button></a>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>New To The Site? Register Now</h1>
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript">
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
@@ -62,7 +62,7 @@
 
         signUpButton.addEventListener('click', () => {
             container.classList.add("right-panel-active");
-            
+
         });
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");

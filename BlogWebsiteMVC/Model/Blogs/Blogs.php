@@ -132,7 +132,13 @@ class Blogs extends Dbc {
   public function read_more($id) {
     $sql6 = "SELECT * from blog_posts WHERE id='".$id."';";
     $result = mysqli_query($this->db, $sql6);
-    return $result;
+    $row = $result->num_rows;
+    if ($row == 0) {
+      return FALSE;
+    }
+    else {
+      return $result;
+    }
   }
 
   /**

@@ -16,51 +16,56 @@
           <a href="/index/my_post?q=logout" class="w3-bar-item w3-animate-right w3-button w3-right w3-padding-16 w3-mobile w3-padding-large">LOGOUT</a>
       </div>
       <div class="w3-content" style="margin-top:4em;max-width:1150px">
-      <header class="w3-container w3-center w3-padding-24"> 
+      <header class="w3-container w3-center w3-padding-24">
       <h1><b>MY BLOG POSTS</b></h1>
     </header>
-    <?php foreach($posts as $post):?>
+    <?php foreach ($posts as $post) :?>
     <div class='w3-row-padding'>
         <div class='w3-col s12'>
             <div class='w3-card-4 w3-white'>
                 <div class='w3-container'>
                     <div class='w3-col m4 l3'>
-                        <div class='w3-container w3-padding-16'><img src="data:image/png;base64,<?php echo base64_encode($post['imageData'])?>" style="padding-top:4em;width:100%" />
-                        </div>    
+                        <div class='w3-container w3-padding-16'><img src="data:image/png;base64,<?php echo base64_encode($post['imageData'])?>" style="padding-top:1em;width:100%" />
+                        </div>
                     </div>
                     <div class='w3-col m8 l9'>
                         <div class='w3-container'>
                             <h1><?php echo $post['title'] ?></h1>
                             <h5><?php echo $post['author'].", " ?> <span class='w3-opacity'>
-                               <?php 
-                                    $tmp=$post['date_posted'];
-                                    $date=date('M jS, Y h:i A',strtotime($tmp));
-                                    echo $date;
+                               <?php
+                                // Stores date posted in $tmp variable.
+                                $tmp = $post['date_posted'];
+                                // Stores date in a format to display.
+                                $date = date('M jS, Y h:i A', strtotime($tmp));
+                                echo $date;
                                 ?></span>
                             </h5>
                         </div>
                         <div class='w3-container'>
                             <p>
                                <?php
-                                    $content=$post['post'];
-                                    $content = strip_tags($content);
-                                        if (strlen($content) > 200) {
-                                            // truncate string
-                                            $stringCut = substr($content, 0, 200);
-                                            $endPoint = strrpos($stringCut, ' ');
-                                            //if the string doesn't contain any space then it will cut without word basis.
-                                            $content = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                            $content .= "<b>... </b>";
-                                        }
-                                    echo $content;
+                                // Stores blog post in $content variable.
+                                $content = $post['post'];
+                                // Stores post content after removing html tags.
+                                $content = strip_tags($content);
+                                if (strlen($content) > 200) {
+                                  // Truncate string.
+                                  $stringCut = substr($content, 0, 200);
+                                  $endPoint = strrpos($stringCut, ' ');
+                                  // If the string doesn't contain any space.
+                                  // Then it will cut without word basis.
+                                  $content = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                  $content .= "<b>... </b>";
+                                }
+                                echo $content;
                                 ?>
                             </p>
                         </div>
                         <div class='w3-container'>
                             <div class='w3-row'><p>
                                 <a href="/index/read?pid=<?php echo $post['id'] ?>" class='w3-button w3-light-grey w3-padding-large w3-white w3-border'><b>READ MORE »</b></a>
-                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="/index/edit?pid=<?php echo $post['id'] ?>"><b>EDIT</b></a>
-                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="/index/delete?pid=<?php echo $post['id'] ?>" onclick='return checkDelete()'><b>DELETE</b></a></p>
+                                <a href="/index/edit?pid=<?php echo $post['id'] ?>" class='w3-button w3-padding-large w3-white w3-border w3-light-grey'><b>EDIT</b></a>
+                                <a class='w3-button w3-padding-large w3-white w3-border w3-light-grey' href="/index/delete?pid=<?php echo $post['id'] ?>" onclick="return confirm('Are you sure you want to delete this item?');"><b>DELETE</b></a></p>
                             </div>
                         </div>
                     </div>
@@ -69,8 +74,8 @@
         </div>
     </div><hr>
     <?php endforeach ?>
-    <?php if(!$res){ ?>
-        <div class='w3-container'><div class='w3-row'><?php echo $err ?></div></div><hr>    
+    <?php if (!$res) { ?>
+        <div class='w3-container'><div class='w3-row'><?php echo $err ?></div></div><hr>
     <?php }?>
     <div class="w3-container">
        <div class="w3-row">

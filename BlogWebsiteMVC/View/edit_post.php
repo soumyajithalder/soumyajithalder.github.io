@@ -34,11 +34,11 @@
                 <div class="form-group col-md-4"><input id="update" type="submit" class="btn btn-primary" name="update" value="Update"></div>
                 <div class="form-group col-md-4">
                     <p id="success"></p>
-                    <?php if(isset($_SESSION['edit'])&&($_SESSION['edit']==1)) {?>
+                    <?php if (isset($_SESSION['edit'])&&($_SESSION['edit'] == 1)) {?>
                     <script src="../js/edit.js"></script>
                     <h6>Post Updated. <a href="/index/my_post">Show Blog</a></h6>
                     <?php } unset($_SESSION['edit']);
-                ?>
+                    ?>
                 </div>
                 <div class="form-group col-md-4"><a href="/index/my_post" class="btn btn-primary">Go To My Post</a></div>
             </div>

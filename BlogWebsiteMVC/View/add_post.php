@@ -5,7 +5,6 @@
     <title>Add Blog Posts</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../css/style.css">
-<!--    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
@@ -32,11 +31,11 @@
                 <div class="form-group col-md-4"><input id="submit" type="submit" class="btn btn-primary" name="submit" value="Submit"></div>
                 <div class="form-group col-md-4">
                     <p id="success"></p>
-                    <?php if(isset($_SESSION['add'])&&($_SESSION['add']==1)) {?>
+                    <?php if (isset($_SESSION['add'])&&($_SESSION['add'] == 1)) {?>
                     <script src="../js/add.js"></script>
                     <h6>Post Added. <a href="/index/my_post">Show Blog</a></h6>
                     <?php } unset($_SESSION['add']);
-                ?>
+                    ?>
                 </div>
                 <div class="form-group col-md-4"><a href="/index/my_post" class="btn btn-primary">Go To My Post</a></div>
             </div>

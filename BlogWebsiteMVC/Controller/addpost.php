@@ -17,19 +17,21 @@ if (count($_FILES) > 0) {
     $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
   }
 }
-
+// Stores date in a format.
 $date = date('Y-m-d, H:i:s');
+// Stores User Id in $authorId variable.
 $authorId = $_SESSION['uid'];
 if (isset($_REQUEST['submit'])) {
-        extract($_REQUEST);
-        $add_post=$blog->add_posts($title,$post,$authorId,$date,$imgData);
-        if($add_post){
-           $_SESSION['add']=1;
-        }
-        else
-        {
-            $_SESSION['add']=0;
-        }
-    }
-    require_once ("./View/add_post.php");
+  extract($_REQUEST);
+  $add_post = $blog->add_posts($title, $post, $authorId, $date, $imgData);
+  if ($add_post) {
+    $_SESSION['add'] = 1;
+  }
+  else {
+    $_SESSION['add'] = 0;
+  }
+}
+
+require_once "./View/add_post.php";
+
 ?>

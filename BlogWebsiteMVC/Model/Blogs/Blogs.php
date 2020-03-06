@@ -28,7 +28,7 @@ class Blogs extends Dbc {
    */
   public function add_posts($title, $post, $authorId, $date, $imgData) {
     $sql = "INSERT INTO blog_posts (title,post,author,date_posted,imageData) VALUES ('".$title."','".$post."',(SELECT fullname from users WHERE uid='".$authorId."'),'".$date."','{$imgData}');";
-    if ($title == "" || $post == "") {
+    if ($title == "" || $post == "" || $imgData == "") {
       echo "Please complete your post";
       return;
     }

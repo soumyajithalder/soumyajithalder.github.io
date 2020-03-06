@@ -5,5 +5,8 @@
             "User\\": "./Model/User",
             "Blogs\\": "./Model/Blogs"
         }
+    },
+    "require": {
+        "google/apiclient": "^2.0"
     }
 }

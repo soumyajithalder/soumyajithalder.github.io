@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Account of LogIn</title>
+    <title>Create Account or LogIn</title>
     <link rel="stylesheet" type="text/css" href="../css/signlog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body>
@@ -12,6 +13,10 @@
         <div class="form-container sign-up-container">
             <form enctype="multipart/form-data" method="post" >
                 <h1>Register</h1>
+                <div class="social-container">
+                  <a href="<?php echo $login_url; ?>" class="social"><i class="fab fa-google-plus-g fa-lg"></i></a>
+                </div>
+                <span>Or use your details to register.</span>
                 <input class="input" type="text" name="fullname" placeholder="Full Name" required>
                 <input class="input" type="text" name="username" placeholder="Username" required>
                 <input class="input" type="password" name="password" placeholder="Password" required>
@@ -22,13 +27,19 @@
         <div class="form-container sign-in-container">
             <form enctype="multipart/form-data" method="post">
                <h1>Sign In</h1>
+               <div class="social-container">
+                 <a href="<?php echo $login_url; ?>" class="social"><i class="fab fa-google-plus-g fa-lg"></i></a>
+               </div>
+               <span>Or login with your username.</span>
                 <input class="input" type="text" name="username" placeholder="Username" required>
                 <input class="input" type="password" name="password" placeholder="Password" required>
                 <input class="btn" type="submit" name="login-submit" value="Log In">
                 <?php if (isset($_SESSION['login'])) {?>
                   <p><?php echo $err?></p>
                 <?php }?>
+              </br><div class="g-recaptcha" data-sitekey="6LdHLd8UAAAAAFUbhHnbl9qGCtioGFbIRbAgzTIs"></div>
             </form>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         </div>
 
         <div class="overlay-container">

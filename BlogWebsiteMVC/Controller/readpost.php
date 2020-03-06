@@ -12,6 +12,11 @@ use Blogs\Blogs;
 $blog = new Blogs();
 // Stores Post Id in $pid variable.
 $pid = $_GET['pid'];
+
+if (!ctype_digit($pid)) {
+  header("Location: 404page.php");
+}
+
 $res = $blog->read_more($pid);
 
 if ($res) {

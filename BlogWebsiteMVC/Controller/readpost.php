@@ -1,16 +1,32 @@
 <?php
-    require_once './vendor/autoload.php';
-    use Blogs\Blogs;
 
-    $blog=new Blogs();
-    $pid=$_GET['pid'];
+/**
+ * @file
+ * Provides Read Post controller for showing full post to read.
+ */
 
-    $res=$blog->read_more($pid);
-    $posts=array();
-    if($res){
-        while($row=mysqli_fetch_assoc($res)){
-            $posts[]=$row;
-        }
-    }
-require_once ("./View/read_post.php");
+require_once './vendor/autoload.php';
+
+use Blogs\Blogs;
+
+$blog = new Blogs();
+// Stores Post Id in $pid variable.
+$pid = $_GET['pid'];
+
+if (!ctype_digit($pid)) {
+  header("Location: 404page.php");
+}
+
+$res = $blog->read_more($pid);
+
+if ($res) {
+  while ($row = mysqli_fetch_assoc($res)) {
+    $posts[] = $row;
+  }
+}
+else {
+  header("Location: 404page.php");
+}
+require_once "./View/read_post.php";
+
 ?>

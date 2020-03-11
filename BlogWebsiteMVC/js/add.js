@@ -1,25 +1,25 @@
 $(document).ready(function () {
-    var form = $('#mainform');
-
-    $(form).submit(function (event) {
+    $("#submit").click(function () {
         event.preventDefault();
-        
-        var formData=$(form).serialize();
-        
-        if(formData==''){
+        var title = $("#title").val();
+        var post = $("#post").val();
+        var userImage = $("#img").val();
+        // Returns successful data submission message when the entered information is stored in database.
+        var dataString = 'title=' + title + '&post=' + post + '&userImage=' + userImage;
+        if (title == '' || post == '' || userImage == '') {
             alert("Please Fill All Fields");
-        }
-        else{
+        } else {
+            // AJAX Code To Submit Form.
             $.ajax({
                 type: "POST",
-                url: "../Controller/addpost.php",,
-                data: formData,
-                success: function(resonse){
-                    $('#success').html(resonse);
+                url: "../Controller/add-ajax.php",
+                data: dataString,
+                cache: false,
+                success: function(response){
+                    $('#success').html(response);
                 }
             });
         }
-        var form=document.getElementById('mainform').reset();
         return false;
     });
 });

@@ -14,26 +14,28 @@
             <a href="/index/my_post" class="w3-bar-item w3-animate-left w3-button w3-left w3-padding-16 w3-mobile w3-padding-large">MY BLOGS</a>
     </div>
     <div class="w3-content" style="margin-top:4em;max-width:1150px">
-      <header class="w3-container w3-center w3-padding-24"> 
+      <header class="w3-container w3-center w3-padding-24">
       <h1><b>FULL POST</b></h1>
     </header>
-    <?php foreach($posts as $post):?>
+    <?php foreach ($posts as $post) :?>
     <div class='w3-row-padding'>
         <div class='w3-col s12'>
             <div class='w3-card-4 w3-white'>
                 <div class='w3-container'>
                     <div class='w3-col m4 l3'>
-                        <div class='w3-container w3-padding-16'><img src="data:image/png;base64,<?php echo base64_encode($post['imageData'])?>" style="padding-top:4em;width:100%" />
-                        </div>    
+                        <div class='w3-container w3-padding-16'><img src="data:image/png;base64,<?php echo base64_encode($post['imageData'])?>" style="padding-top:1em;width:100%" />
+                        </div>
                     </div>
                     <div class='w3-col m8 l9'>
                         <div class='w3-container'>
                             <h1><?php echo $post['title'] ?></h1>
                             <h5><?php echo $post['author'].", " ?> <span class='w3-opacity'>
-                               <?php 
-                                    $tmp=$post['date_posted'];
-                                    $date=date('M jS, Y h:i A',strtotime($tmp));
-                                    echo $date;
+                               <?php
+                                // Stores blog post in $content variable.
+                                $tmp = $post['date_posted'];
+                                // Stores post content after removing html tags.
+                                $date = date('M jS, Y h:i A', strtotime($tmp));
+                                echo $date;
                                 ?></span>
                             </h5>
                         </div>
